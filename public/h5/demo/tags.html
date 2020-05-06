@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>HUI</title>
+<link rel="stylesheet" type="text/css" href="../css/hui.css" />
+</head>
+<body>
+<header class="hui-header">
+    <div id="hui-back"></div>
+    <h1>HUI 标签组件</h1>
+</header>
+<div class="hui-wrap">
+	<div class="hui-common-title" style="margin-top:15px;">
+		<div class="hui-common-title-line"></div>
+		<div class="hui-common-title-txt">普通标签</div>
+		<div class="hui-common-title-line"></div>
+	</div>
+	<div style="padding:10px 15px;" class="hui-tags">
+		<div>运营</div>
+		<div>设计</div>
+		<div>前端</div>
+		<div>平面</div>
+	</div>
+	<div class="hui-common-title" style="margin-top:15px;">
+		<div class="hui-common-title-line"></div>
+		<div class="hui-common-title-txt">圆角标签</div>
+		<div class="hui-common-title-line"></div>
+	</div>
+	<style type="text/css">
+	/* 标签颜色改变 */
+	.greenTags > div{border-color:#31A990; color:#31A990;}
+	</style>
+	<div style="padding:10px 15px;" class="hui-tags hui-tags-fillet greenTags">
+		<div>php</div>
+		<div>HTML</div>
+		<div>css</div>
+		<div>Node.js</div>
+	</div>
+	<div class="hui-common-title" style="margin-top:15px;">
+		<div class="hui-common-title-line"></div>
+		<div class="hui-common-title-txt">可选择标签</div>
+		<div class="hui-common-title-line"></div>
+	</div>
+	<div style="padding:10px 15px;" id="tags1" class="hui-tags">
+		<div tagVal="0" class="hui-tags-active">点击选择</div>
+		<div tagVal="1">橄榄球</div>
+		<div tagVal="2">篮球</div>
+		<div tagVal="3" class="hui-tags-active">足球</div>
+		<div tagVal="4">网球</div>
+		<div tagVal="5">乒乓球</div>
+		<div tagVal="6">羽毛球</div>
+	</div>
+	<div style="padding:10px 35px;">
+		<button type="button" class="hui-button hui-button-small hui-fr hui-primary" id="btn">获取选中标签的内容和值</button>
+	</div>
+</div>
+<script src="../js/hui.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+/*
+ * hui.tags()
+ * 函数第2个参数为可选参数【标签状态切换的回调函数】，可以根据实际情况决定是否完善
+ */
+hui.tags('#tags1', function(){
+	var tagData = hui.getTagsData('#tags1'); 
+	console.log(JSON.stringify(tagData));
+});
+//按钮点击事件
+hui('#btn').click(function(){
+	var tagData = hui.getTagsData('#tags1'); 
+	console.log(JSON.stringify(tagData));
+	hui.alert('请观察控制台');
+});
+</script>
+</body>
+</html>

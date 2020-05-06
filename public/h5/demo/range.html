@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>HUI</title>
+<link rel="stylesheet" type="text/css" href="../css/hui.css" />
+</head>
+<body>
+<header class="hui-header">
+    <div id="hui-back"></div>
+    <h1>HUI 滑块</h1>
+</header>
+<div class="hui-wrap">
+	<div class="hui-common-title" style="margin-top:15px;">
+		<div class="hui-common-title-line"></div>
+		<div class="hui-common-title-txt">普通滑块</div>
+		<div class="hui-common-title-line"></div>
+	</div>
+	<div style="padding:0px 25px;">
+	    <div style="line-height:30px; padding-bottom:8px;" id="showValue">滑块值 : 20</div>
+	    <div class="hui-range">
+	    	<input type="range" name="" id="range1" min="0" max="100" value="20" />
+	    </div>
+	</div>
+	<div class="hui-common-title" style="margin-top:35px;">
+		<div class="hui-common-title-line"></div>
+		<div class="hui-common-title-txt">刻度滑块</div>
+		<div class="hui-common-title-line"></div>
+	</div>
+	<div style="padding:0px 25px;">
+	    <div style="line-height:30px; padding-bottom:8px;" id="showValue2">您的身高 : 120cm</div>
+	    <div class="hui-range">
+	    	<input type="range" name="" id="range2" min="100" max="220" value="120" />
+	    </div>
+	    <div class="hui-range-ruling"></div>
+	    <div class="hui-range-ruling-txt">
+	    	<div>100</div>
+	    	<div>220</div>
+	    </div>
+	</div>
+	<div class="hui-common-title" style="margin-top:35px;">
+		<div class="hui-common-title-line"></div>
+		<div class="hui-common-title-txt">组合滑块</div>
+		<div class="hui-common-title-line"></div>
+	</div>
+	<div style="padding:0px 25px;">
+		<div style="line-height:30px; padding-bottom:8px;" id="showValue3">价格区间 : 250 - 750</div>
+		<!-- 组合滑块区 -->
+		<div style="background:#E1E1E1; height:20px; border-radius:2px;">
+			<div style="width:50%; float:left;">
+				<div class="hui-range">
+			    	<input type="range" name="" id="range3_1" min="0" max="500" value="250" />
+			    </div>
+			</div>
+			<div style="width:50%; float:right;">
+				<div class="hui-range">
+			    	<input type="range" name="" id="range3_2" min="500" max="1000" value="750" />
+			    </div>
+			</div>
+		</div>
+		<div class="hui-range-ruling"></div>
+	    <div class="hui-range-ruling-txt">
+	    	<div>0</div>
+	    	<div>1000</div>
+	    </div>
+	</div>
+</div>
+<script src="../js/hui.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+hui('#range1').ranging(function(value){
+	hui('#showValue').html('滑块值: '+value);
+});
+hui('#range2').ranging(function(value){
+    hui('#showValue2').html('您的身高: '+ value + 'cm');
+});
+hui('#range3_1').ranging(function(value){
+	range2get();
+});
+hui('#range3_2').ranging(function(value){
+	range2get();
+});
+hui('.hui-range-ruling').rangeRuling();
+function range2get(){
+	var val1 = hui('#range3_1').val();
+	var val2 = hui('#range3_2').val();
+    hui('#showValue3').html('价格区间: '+ val1 + ' - ' + val2);
+}
+</script>
+</body>
+</html>

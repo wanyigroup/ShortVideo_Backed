@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>HUI 分段切换</title>
+<link rel="stylesheet" type="text/css" href="../css/hui.css" />
+</head>
+<body>
+<header class="hui-header">
+    <div id="hui-back"></div>
+    <h1>HUI </h1>
+</header>
+<div class="hui-wrap">
+	<div class="hui-common-title" style="margin-top:15px;">
+		<div class="hui-common-title-line"></div>
+		<div class="hui-common-title-txt">样例演示</div>
+		<div class="hui-common-title-line"></div>
+	</div>
+	<div style="padding:20px;">
+		<div class="hui-segment" id="cate">
+			<a href="javascript:changeDom(1);" class="hui-segment-active">新闻</a>
+			<a href="javascript:changeDom(2);">音乐</a>
+			<a href="javascript:changeDom(3);">视频</a>
+		</div>
+		<div id="domsIn" style="padding:20px; text-align:center;">
+			新闻...
+		</div>
+	</div>
+</div>
+<script src="../js/hui.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+//点击切换函数可以根据实际业务需求编写业务代码
+function changeDom(index){
+	index--;
+	var html = ['新闻','音乐','视频'];
+	hui('#domsIn').html(html[index]+'...');
+	hui('#cate a').eq(index).addClass('hui-segment-active').siblings().removeClass('hui-segment-active');
+}
+</script>
+</body>
+</html>

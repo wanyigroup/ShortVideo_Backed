@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>HUI</title>
+<link rel="stylesheet" type="text/css" href="../css/hui.css" />
+</head>
+<body>
+<header class="hui-header">
+    <div id="hui-back"></div>
+    <h1>HUI index 获取</h1>
+</header>
+<div class="hui-wrap">
+	<div class="hui-common-title" style="margin-top:15px;">
+		<div class="hui-common-title-line"></div>
+		<div class="hui-common-title-txt">获取 LI 的 index值 </div>
+		<div class="hui-common-title-line"></div>
+	</div>
+	<div class="hui-text hui-text-center" style="margin:20px;">
+		请点击列表获取 LI 的 index 值 ^_^
+	</div>
+	<div class="hui-list" style="margin:10px 20px;">
+		<ul>
+			<li><div class="hui-list-text">li1</div></li>
+			<li><div class="hui-list-text">li2</div></li>
+			<li><div class="hui-list-text">li3</div></li>
+			<li><div class="hui-list-text">li4</div></li>
+		</ul>
+	</div>
+</div>
+<script src="../js/hui.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+hui('li').click(function(){
+	hui.toast('index : '+ hui(this).index());
+});
+</script>
+</body>
+</html>

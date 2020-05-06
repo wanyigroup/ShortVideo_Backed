@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>HUI - 数字输入框</title>
+<link rel="stylesheet" type="text/css" href="../css/hui.css" />
+</head>
+<body>
+<header class="hui-header">
+    <div id="hui-back"></div>
+    <h1>HUI - 数字输入框</h1>
+</header>
+<div class="hui-wrap">
+	<div class="hui-common-title" style="margin-top:15px;">
+		<div class="hui-common-title-line"></div>
+		<div class="hui-common-title-txt">数值限定 : 1 - 3</div>
+		<div class="hui-common-title-line"></div>
+	</div>
+	<div style="padding:28px 50px;">
+        <div class="hui-number-box" min="1" max="3">
+            <div class="reduce">-</div>
+            <input type="number" value="1" />
+            <div class="add">+</div>
+        </div>
+	</div>
+	<div class="hui-common-title" style="margin-top:15px;">
+		<div class="hui-common-title-line"></div>
+		<div class="hui-common-title-txt">数值限定 : -5 - 100</div>
+		<div class="hui-common-title-line"></div>
+	</div>
+	<div style="padding:28px 50px;">
+        <div class="hui-number-box" min="-1" max="100">
+            <div class="reduce">-</div>
+            <input type="number" value="1" />
+            <div class="add">+</div>
+        </div>
+	</div>
+</div>
+<script src="../js/hui.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+//一句话即可完成js工作
+hui.numberBox();
+</script>
+</body>
+</html>

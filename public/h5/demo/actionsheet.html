@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>HUI - 操作表</title>
+<link rel="stylesheet" type="text/css" href="../css/hui.css" />
+</head>
+<body>
+<header class="hui-header">
+    <div id="hui-back"></div>
+    <h1>HUI - 操作表</h1>
+</header>
+<div class="hui-wrap">
+	<div class="hui-common-title" style="margin-top:15px;">
+		<div class="hui-common-title-line"></div>
+		<div class="hui-common-title-txt">操作表演示</div>
+		<div class="hui-common-title-line"></div>
+	</div>
+	<div style="padding:20px; padding-top:38px;">
+        <button type="button" class="hui-button hui-button-large" id="btn1">Action Sheet</button>
+        <button type="button" class="hui-button hui-button-large" id="btn2" style="margin-top:18px;">H5+ 原生 Action Sheet</button>
+   </div>
+</div>
+<script src="../js/hui.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+var meuns = ['拍照', '从相册中选择'];
+var cancel = '取消';
+hui('#btn1').click(function(){
+    hui.actionSheet(meuns, cancel, function(e){
+        console.log(e.index);
+        hui.toast(e.innerHTML);
+    });
+});
+//手册地址
+//http://www.html5plus.org/doc/zh_cn/nativeui.html#plus.nativeUI.actionSheet
+hui('#btn2').click(function(){
+    if(!window.plus){
+        hui.alert('只能在h5+环境下运行！');
+        return false;
+    }
+    var actionbuttons = [{title : "微信好友"}, {title : "朋友圈"}];
+    var actionstyle   = {title : "请选择分享类型", cancel : "取消", buttons : actionbuttons};
+    plus.nativeUI.actionSheet(actionstyle, function(e){
+        console.log(e.index);
+    });
+});
+</script>
+</body>
+</html>

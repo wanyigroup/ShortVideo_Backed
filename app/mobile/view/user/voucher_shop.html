@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>更多特权，会员专享</title>
+    <link rel="stylesheet" type="text/css" href="/h5/css/hui.css" />
+</head>
+<body style="background:#F4F5F6;">
+<div class="hui-wrap">
+    <div class="hui-common-title" style="margin-top:15px;">
+        <div class="hui-common-title-line"></div>
+        <div class="hui-common-title-txt"><img src="/h5/voucher.png" width="22px" height="22px" style="vertical-align: sub;"/> 兑换码在线购买</div>
+        <div class="hui-common-title-line"></div>
+    </div>
+    <div style="color: red;text-align: center">VIP用户享有,10T私有视频云空间+无任何广告!</div>
+    <div class="hui-media-list" style="padding:10px;">
+        <ul>
+            {volist name="list" id="vo" empty="暂时没有数据" }
+            <li>
+                <div class="hui-media-list-img"><img src="{$vo.iconimage}" style="vertical-align: middle;margin-top: 15px;"/></div>
+                <div class="hui-media-content">
+                    <h3>{$vo.title}</h3>
+                    <p>{$vo.desc}</p>
+                    <p>
+                        {if $vo.freedays >= 0}
+                        天数: {$vo.days+$vo.freedays}天 <span style="color: red;font-size: small">限时优惠赠送{$vo.freedays}天!</span>
+                        {else}
+                        天数: {$vo.days}
+                        {/if}
+                    </p>
+                    <p>
+                        售价:{$vo.amount}元
+                        <span class="hui-button-small hui-primary" style="float: right;"><a href="{$vo.orderurl1}" target="_blank" style="color: white;">立刻购买</a></span>
+                    </p>
+                </div>
+            </li>
+            {/volist}
+        </ul>
+    </div>
+</div>
+</body>
+</html>

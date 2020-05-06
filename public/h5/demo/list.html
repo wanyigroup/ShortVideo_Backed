@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>HUI 列表</title>
+<link rel="stylesheet" type="text/css" href="../css/hui.css" />
+</head>
+<body>
+<header class="hui-header">
+    <div id="hui-back"></div>
+    <h1>HUI - 列表</h1>
+</header>
+<div class="hui-wrap">
+	<div class="hui-common-title" style="margin-top:15px;">
+		<div class="hui-common-title-line"></div>
+		<div class="hui-common-title-txt">普通文字列表</div>
+		<div class="hui-common-title-line"></div>
+	</div>
+    <div class="hui-list" style="margin-top:22px;">
+    	<ul>
+    		<li>
+    			<a href="javascript:hui.toast('Hello Hcoder UI !');">
+		    		<div class="hui-list-text">普通文字列表</div>
+		    	</a>
+    		</li>
+    		<li>
+    			<a href="javascript:hui.toast('Hello Hcoder UI !');">
+		    		<div class="hui-list-text">
+		    			<div class="hui-list-text-content">
+		    			文本很长并想保持右侧箭头的例子：HUI 更轻、更好的移动端UI框架！
+		    			</div>
+		    			<div class="hui-list-info">
+		    				查看 <span class="hui-icons hui-icons-right"></span>
+		    			</div>
+		    		</div>
+		    	</a>
+    		</li>
+    	</ul>
+    </div>
+    <div class="hui-common-title" style="margin-top:28px;">
+		<div class="hui-common-title-line"></div>
+		<div class="hui-common-title-txt">带有图标的列表</div>
+		<div class="hui-common-title-line"></div>
+	</div>
+    <div class="hui-list" style="margin-top:22px;">
+        <a href="javascript:hui.toast('Hello Hcoder UI !');">
+    		<div class="hui-list-icons">
+    			<img src="../img/list/home.png" />
+    		</div>
+    		<div class="hui-list-text">
+    			主页
+    			<div class="hui-list-info">
+    				查看 <span class="hui-icons hui-icons-right"></span>
+    			</div>
+    		</div>
+		</a>
+		<a href="javascript:hui.toast('Hello Hcoder UI !');">
+    		<div class="hui-list-icons">
+    			<img src="../img/list/sc.png" />
+    		</div>
+    		<div class="hui-list-text">
+    			收藏
+    		</div>
+    	</a>
+    </div>
+    <div class="hui-common-title" style="margin-top:28px;">
+		<div class="hui-common-title-line"></div>
+		<div class="hui-common-title-txt">组合列表</div>
+		<div class="hui-common-title-line"></div>
+	</div>
+    <div class="hui-list" style="margin-top:22px;">
+    	<a href="javascript:hui.toast('Hello Hcoder UI !');" style="height:auto; height:80px; padding-bottom:8px;">
+    		<div class="hui-list-icons" style="width:110px; height:80px;">
+    			<img src="../img/list/home.png" style="width:66px; margin:0px; border-radius:50%;" />
+    		</div>
+    		<div class="hui-list-text" style="height:79px; line-height:79px;">
+    			Hcoder.net
+    			<div class="hui-list-info">
+    				<span class="hui-icons hui-icons-right"></span>
+    			</div>
+    		</div>
+    	</a>
+    	<a href="javascript:hui.toast('Hello Hcoder UI !');">
+    		<div class="hui-list-text">
+    			账户余额 : 1000元 | 积分 : 2000
+    		</div>
+    	</a>
+    </div>
+</div>
+<script src="../js/hui.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

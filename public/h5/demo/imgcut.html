@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>HUI 图片剪裁</title>
+<link rel="stylesheet" type="text/css" href="../css/hui.css" />
+</head>
+<body>
+<header class="hui-header">
+    <div id="hui-back"></div>
+    <h1>HUI </h1>
+</header>
+<div class="hui-wrap">
+    <div id="hui-img-cuter-select">
+        <div id="hui-img-cuter-t1">+</div>
+        <div id="hui-img-cuter-t2">请选择图片</div>
+    </div>
+</div>
+<div id="hui-footer">
+    <button type="button" class="hui-button hui-fl" style="margin:2px 0px 0px 8px;" id="selectImgBtn">选择照片</button>
+    <button type="button" class="hui-button hui-primary hui-fr" style="margin:2px 8px 0px 0px;" id="uploadBtn">保存照片</button>
+</div>
+<script type="text/javascript" src="../js/hui.js" charset="UTF-8"></script>
+<script type="text/javascript" src="../js/hui-image-cuter.js" charset="UTF-8"></script>
+<script type="text/javascript">
+/*
+huiImgCuter 参数 
+1. 宽度和高度的比例 高度 / 宽度 默认 1
+2. 最终保存图片的宽度 默认 200px 高度根据宽高比自动调整
+*/
+var cuter = new huiImgCuter();
+//绑定底部的选择按钮
+cuter.bindSelect("#selectImgBtn");
+//保存照片
+hui('#uploadBtn').click(function(){
+	//获取图片数据
+	var imgData = cuter.getImgData();
+	if(!imgData){hui.toast('请选择图片'); return;}
+	hui.loading('上传图片...');
+	/*
+	//上传到服务端演示代码
+    hui.post(
+        'http://192.168.31.188/uper.php',
+        {img:imgData},
+        function(data){
+            hui.closeLoading();
+            hui.toast('上传成功!');
+        }
+    );
+    */
+    setTimeout(function(){hui.toast('上传成功，演示的！'); hui.closeLoading();}, 2000);
+});
+</script>
+</body>
+</html>

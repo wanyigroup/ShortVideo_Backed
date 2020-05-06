@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>HUI </title>
+<link rel="stylesheet" type="text/css" href="../css/hui.css" />
+</head>
+<body>
+<header class="hui-header">
+    <div id="hui-back"></div>
+    <h1>HUI </h1>
+    <div id="hui-header-menu" onclick="hui.showSlideMenu();"></div>
+</header>
+<div class="hui-wrap">
+    <div class="hui-center-title" style="margin-top:15px;"><h1>侧滑菜单演示</h1></div>
+    <div style="padding:32px; line-height:2em;">
+        请点击导航右侧的菜单按钮或者向左滑动体验 ^_^
+    </div>
+</div>
+<div class="hui-slide-menu">
+    <ul>
+        <li>菜单1</li>
+        <li>菜单2</li>
+        <li>菜单3</li>
+        <li>菜单4</li>
+        <li style="padding-top:30px;">
+            <button type="button" class="hui-button hui-button-large" onclick="hui.closeSlideMenu();">关闭菜单</button>
+        </li>
+    </ul>
+</div>
+<script type="text/javascript" src="../js/hui.js" charset="UTF-8"></script>
+<script type="text/javascript">
+/* slide menu */
+hui.slideMenu();
+</script>
+</body>
+</html>

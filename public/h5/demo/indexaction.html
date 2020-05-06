@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>HUI </title>
+<link rel="stylesheet" type="text/css" href="../css/hui.css" />
+<style>
+.hui-start-banner{width:100%; height:100%; position:fixed; z-index:9998; left:0px; top:0px; background:#FFFFFF; display:none;}
+#hui-start-banner-close{width:50px; height:50px; position:fixed; z-index:9999; top:50px; right:20px; background:#F5F6F7; display:none; text-align:center; border-radius:50px; line-height:50px; font-size:14px; color:#666;}
+.hui-start-banner .hui-swipe-indicator{width:96%; position:absolute; z-index:3; left:2%; bottom:20px; display:none;}
+</style>
+</head>
+<body>
+<header class="hui-header">
+    <div id="hui-back"></div>
+    <h1>HUI 启动动画</h1>
+</header>
+<div class="hui-wrap">
+    <div class="hui-center-title" style="margin-top:15px;"><h1>演示样例</h1></div>
+    <div class="hui-text hui-text-center" style="padding-top:20px;">启动动画演示效果</div>
+</div>
+<div class="hui-start-banner hui-swipe" id="startBanner">
+	<div class="hui-swipe-items">
+	    <div class="hui-swipe-item" style="background:#2C2342;"><img src="../img/startbanner/1.png" /></div>
+	    <div class="hui-swipe-item" style="background:#6CC5F1;"><img src="../img/startbanner/2.png" /></div>
+	    <div class="hui-swipe-item" style="background:#62C0CC;"><a href="javascript:huiStartBannerClose();"><img src="../img/startbanner/3.png" /></a></div>
+	</div>
+</div>
+<div id="hui-start-banner-close" onclick="huiStartBannerClose();">关闭</div>
+<script type="text/javascript" src="../js/hui.js" charset="UTF-8"></script>
+<script type="text/javascript" src="../js/hui-swipe.js" charset="UTF-8"></script>
+<script type="text/javascript">
+var wininfo = hui.winInfo();
+hui('#startBanner').find('.hui-swipe-item').css({height:wininfo.height+'px'});
+hui('#startBanner').show();
+hui('#hui-start-banner-close').show();
+var swipe      = new huiSwpie('#startBanner');
+swipe.autoPlay = false;
+swipe.loop     = false;
+swipe.run();
+function huiStartBannerClose(){
+    hui('#startBanner').remove();
+    hui('#hui-start-banner-close').remove();
+}
+</script>
+</body>
+</html>

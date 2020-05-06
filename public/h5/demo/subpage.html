@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>HUI</title>
+<link rel="stylesheet" type="text/css" href="../css/hui.css" />
+</head>
+<body>
+<header class="hui-header">
+    <div id="hui-back"></div>
+    <h1>子窗口及滑动窗口切换</h1>
+</header>
+<div class="hui-wrap"></div>
+<div id="hui-footer">
+    <a href="javascript:changeSubView(0);" id="nav-home" class="hui-footer-active">
+        <div class="hui-footer-icons hui-icons-home"></div>
+        <div class="hui-footer-text">首页</div>
+    </a>
+    <a href="javascript:changeSubView(1);" id="nav-news">
+        <div class="hui-footer-icons hui-icons-news"></div>
+        <div class="hui-footer-text">新闻</div>
+    </a>
+    <div style="width:20%; text-align:center;" class="hui-fl">
+        <img src="../img/logo_footer.png" height="44" onclick="hui.back();" />
+    </div>
+    <a href="javascript:changeSubView(2);" id="nav-forum">
+        <div class="hui-footer-icons hui-icons-forum"></div>
+        <div class="hui-footer-text">社区</div>
+    </a>
+    <a href="javascript:hui.toast('我的');" id="nav-my">
+        <div class="hui-footer-icons hui-icons-my"></div>
+        <div class="hui-footer-text">我的</div>
+    </a>
+</div>
+<script src="../js/hui.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+// 创建子窗口
+var subpages =  new Array(
+    new Array('subpage_1.html', {top:'44px', bottom:"55px", left:"0"}),
+    new Array('subpage_2.html', {top:'44px', bottom:"55px", left:"100%"}),
+    new Array('subpage_3.html', {top:'44px', bottom:"55px", left:"200%"})
+);
+hui.plusReady(function(){
+	hui.subpages(subpages);
+});
+//点击底部按钮切换窗口
+function changeSubView(index){
+	for(var i = 0; i< subpages.length; i++){
+		var subpage = hui.getView(subpages[i][0]);
+		subpage.setStyle({'left' : ((index - i) * 100 )+'%'});
+	}
+ 	//选项状态激活
+	hui('#hui-footer a').removeClass('hui-footer-active');
+	hui('#hui-footer a').eq(index).addClass('hui-footer-active');
+}
+
+</script>
+</body>
+</html>

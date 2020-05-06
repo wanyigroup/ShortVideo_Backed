@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dropzone@5.4.0/dist/min/dropzone.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/webuploader@0.1.8/dist/webuploader.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/layui-src@2.5.5/dist/css/layui.css">
+    <title>Uploader</title>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+
+            <div class="layui-upload-drag" style="display:block" id="vupload">
+                <i class="layui-icon layui-icon-video"></i>
+                <p>点击上传，或将视频文件拖拽到此处</p>
+            </div>
+
+            <div class="layui-progress" lay-filter="pr" lay-showPercent="true">
+                <div class="layui-progress-bar" lay-percent="0%"></div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.10.1/Sortable.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/webuploader@0.1.8/dist/webuploader.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/layui-src@2.5.5/dist/layui.js"></script>
+<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+<script>
+    layui.use(['upload','element'], function(){
+        var $ = layui.jquery
+            ,element = layui.element
+            ,upload = layui.upload
+        ;
+        upload.render({
+            elem: '#vupload'
+            ,accept: 'video' //视频
+            ,url: 'upload'
+            ,size: 1024 * 1000000 //限制文件大小，单位 KB
+            ,progress: function(n){
+                var percent = n + '%' //获取进度百分比
+                element.progress('pr', percent); //可配合 layui 进度条元素使用
+            }
+            ,error: function(index, upload){
+                layer.closeAll(); //关闭loading
+            }
+            ,done: function(res){
+                console.log(res)
+                //上传失败
+                if(res.code == 0){
+                    return layer.msg('上传失败' + res.msg);
+                }
+                //上传成功
+                return layer.msg('上传成功,队列ID为' + res.data + ',你在可以在队列管理中查看!');
+            }
+            ,error: function(){
+                //失败状态，并实现重传
+                var demoText = $('#demoText');
+                demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
+                demoText.find('.demo-reload').on('click', function(){
+                    uploadInst.upload();
+                });
+            }
+        });
+    });
+</script>
+</body>
+</html>

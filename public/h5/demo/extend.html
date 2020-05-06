@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>HUI</title>
+<link rel="stylesheet" type="text/css" href="../css/hui.css" />
+</head>
+<body>
+<header class="hui-header">
+    <div id="hui-back"></div>
+    <h1>HUI 插件扩展</h1>
+</header>
+<div class="hui-wrap">
+    <div style="text-align:center; padding:30px 0px 18px 0px;" id="t1"></div>
+    <div style="width:260px; margin:0 auto;">
+        <button class="hui-button" id="btn1">点击按钮向t1内插入红色文本</button>
+    </div>
+</div>
+<script type="text/javascript" src="../js/hui.js"></script>
+<script type="text/javascript">
+hui.extend('redHtml', function(html){
+    this.html('<span style="color:#900">'+html+'</span>');
+});
+hui('#btn1').click(function(){
+    hui('#t1').redHtml('hi..');
+});
+</script>
+</body>
+</html>

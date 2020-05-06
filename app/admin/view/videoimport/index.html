@@ -1,0 +1,52 @@
+<div class="panel panel-default panel-intro">
+
+    <div class="panel-heading">
+        <div class="panel-lead">
+            <em>视频导入工具</em>
+            本工具用途是批量导入小视频文件入库
+        </div>
+    </div>
+
+    <div class="panel-body">
+
+        <div class="row">
+            <div class="col-xs-12">
+                <form id="add-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+                    <div class="form-group">
+                        <label class="control-label col-xs-12 col-sm-2">扫描目录:</label>
+                        <div class="col-xs-12 col-sm-8">
+                            <input id="scandir" data-rule="required" class="form-control" name="row[scandir]" type="text" value="{:app()->getRootPath().'import/'}" aria-describedby="helpBlock">
+                            <span id="helpBlock" class="help-block">请输入绝对路径, 默认是 <kbd>{:app()->getRootPath().'import/'}</kbd> 请使用 / 结尾</span>
+                        </div>
+                    </div>
+
+                    <div id="res"></div>
+
+                    <div class="form-group layer-footer">
+                        <label class="control-label col-xs-12 col-sm-2"></label>
+                        <div class="col-xs-12 col-sm-8">
+                            <a id="startscan" class="btn btn-success btn-embossed">开始扫描文件</a>
+                            <a id="startimport" class="btn btn-info btn-embossed">开始导入文件</a>
+                        </div>
+                    </div>
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<!--
+<div class="row">
+    <div class="col-xs-6">
+    1
+    </div>
+    <div class="col-xs-6">
+    2
+    </div>
+</div>
+
+-->

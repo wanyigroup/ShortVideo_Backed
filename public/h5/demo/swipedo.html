@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>HUI</title>
+<link rel="stylesheet" type="text/css" href="../css/hui.css" />
+</head>
+<body>
+<header class="hui-header">
+    <div id="hui-back"></div>
+    <h1>HUI 滑动操作</h1>
+</header>
+<div class="hui-wrap">
+	<div class="hui-common-title" style="margin-top:15px;">
+		<div class="hui-common-title-line"></div>
+		<div class="hui-common-title-txt">滑动操作演示</div>
+		<div class="hui-common-title-line"></div>
+	</div>
+	<div class="hui-swipe-do">
+		<div class="hui-swipe-do-doms">
+			<!-- 请不要给 hui-swipe-do-content 设置影响宽度的样式，如需要左padding在其内部增加div解决 -->
+			<div class="hui-swipe-do-content">
+				<div style="padding-left:12px; line-height:60px;">
+					这里是内容，请向左侧拖动进行操作...
+				</div>
+			</div>
+			<div class="hui-swipe-do-btn hui-swipe-do-btn-gray">标记</div>
+			<div class="hui-swipe-do-btn" onclick="removeDom(this);">删除</div>
+		</div>
+	</div>
+	<div class="hui-swipe-do">
+		<div class="hui-swipe-do-doms">
+			<!-- 请不要给 hui-swipe-do-content 设置影响宽度的样式，如需要左padding在其内部增加div解决 -->
+			<div class="hui-swipe-do-content">
+				<div style="line-height:30px; padding:10px 8px;">
+					这里是内容，请向左侧拖动进行操作...<br />
+					操作按钮的高度会自动调整
+				</div>
+			</div>
+			<div class="hui-swipe-do-btn" onclick="removeDom(this);">删除</div>
+		</div>
+	</div>
+	<div class="hui-swipe-do">
+		<div class="hui-swipe-do-doms">
+			<!-- 请不要给 hui-swipe-do-content 设置影响宽度的样式，如需要左padding在其内部增加div解决 -->
+			<div class="hui-swipe-do-content">
+				<div style="padding-left:12px; line-height:60px;">
+					三个操作按钮演示，请向左侧拖动进行操作...
+				</div>
+			</div>
+			<div class="hui-swipe-do-btn hui-swipe-do-btn-gray">功能1</div>
+			<div class="hui-swipe-do-btn hui-swipe-do-btn-blue">功能2</div>
+			<div class="hui-swipe-do-btn" onclick="removeDom(this);">删除</div>
+		</div>
+	</div>
+</div>
+<script src="../js/hui.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+//初始化
+hui.swipeDo();
+//删除功能
+function removeDom(cdom){
+	var dDom = hui(cdom).parent().parent();
+	dDom.hide(true);
+	setTimeout(function(){dDom.remove();}, 300);
+}
+</script>
+</body>
+</html>

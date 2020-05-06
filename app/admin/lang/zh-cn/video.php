@@ -1,0 +1,30 @@
+<?php
+
+return [
+    'Id'          => 'ID',
+    'Uid'         => '用户',
+    'Cid'         => '分类',
+    'Sid'         => '存储',
+    'Vkey'        => 'vKEY',
+    'Feature'     => '推荐',
+    'Feature 0'   => '未推荐',
+    'Feature 1'   => '已推荐',
+    'Title'       => '标题',
+    'Description' => '简介',
+    'Tags'        => '标签',
+    'Image'       => '封面',
+    'Height'      => '高度',
+    'Width'       => '宽度',
+    'Duration'    => '长度',
+    'File'        => '路径',
+    'Likes'       => '喜欢',
+    'Views'       => '点击量',
+    'Createtime'  => '创建时间',
+    'Updatetime'  => '更新时间',
+    'Deletetime'  => '删除时间',
+    'Status'      => '状态',
+    'Status 0'    => '待审',
+    'Status 1'    => '正常',
+    'Status 2'    => '投诉',
+    'Status 4'    => '封禁'
+];

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>HUI</title>
+<link rel="stylesheet" type="text/css" href="../css/hui.css" />
+</head>
+<body>
+<header class="hui-header">
+    <div id="hui-back"></div>
+    <h1>HUI 基础布局</h1>
+</header>
+<div class="hui-wrap">
+	<div class="hui-common-title" style="margin-top:15px;">
+		<div class="hui-common-title-line"></div>
+		<div class="hui-common-title-txt">横向自动缩放</div>
+		<div class="hui-common-title-line"></div>
+	</div>
+	<style type="text/css">
+	.bgGreen{background:#1BC5BB !important;}
+	.bgRed{background:#EE4B47 !important;}
+	.demo{width:100%; height:80px; text-align:center; color:#FFF; line-height:80px; font-size:22px; margin:5px; background:#3388FF;}
+	</style>
+	<div class="hui-flex">
+		<div class="demo">1</div>
+		<div class="demo bgGreen">2</div>
+		<div class="demo bgRed">3</div>
+	</div>
+	<div class="hui-common-title" style="margin-top:15px;">
+		<div class="hui-common-title-line"></div>
+		<div class="hui-common-title-txt">不缩放并换行</div>
+		<div class="hui-common-title-line"></div>
+	</div>
+	<style type="text/css">
+	.demo1{width:45%; height:80px; text-align:center; color:#FFF; line-height:80px; font-size:22px; margin:5px; background:#3388FF;}
+	</style>
+	<div class="hui-flex" style="flex-wrap:wrap;">
+		<div class="demo1">1</div>
+		<div class="demo1 bgGreen">2</div>
+		<div class="demo1 bgRed">3</div>
+	</div>
+	<div class="hui-common-title" style="margin-top:15px;">
+		<div class="hui-common-title-line"></div>
+		<div class="hui-common-title-txt">竖向排列</div>
+		<div class="hui-common-title-line"></div>
+	</div>
+	<style type="text/css">
+	.demo2{height:80px; text-align:center; color:#FFF; line-height:80px; font-size:22px; margin:5px; background:#3388FF;}
+	</style>
+	<div>
+		<div class="demo2">1</div>
+		<div class="demo2 bgGreen">2</div>
+		<div class="demo2 bgRed">3</div>
+	</div>
+</div>
+<script src="../js/hui.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

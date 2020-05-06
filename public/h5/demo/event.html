@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>HUI</title>
+<link rel="stylesheet" type="text/css" href="../css/hui.css" />
+</head>
+<body>
+<header class="hui-header">
+    <div id="hui-back"></div>
+    <h1>HUI 常用事件</h1>
+</header>
+<div class="hui-wrap">
+	<div class="hui-common-title" style="margin-top:15px;">
+		<div class="hui-common-title-line"></div>
+		<div class="hui-common-title-txt">常用事件演示</div>
+		<div class="hui-common-title-line"></div>
+	</div>
+	<div style="padding:28px 20px 10px 20px;" id="btnList1">
+        <button type="button" class="hui-button hui-button-large" id="btn1">单击事件</button>
+        <button type="button" class="hui-button hui-button-large" id="btn2" style="margin-top:15px;">长按事件</button>
+      	<div class="hui-form" style="margin-top:15px;">
+	        <div class="hui-form-items">
+	        	<input type="text" name="" id="input1" value="" placeholder="值改变事件" class="hui-input" />
+	        </div>
+	        <div class="hui-form-items">
+	        	<input type="text" name="" id="input2" value="" placeholder="聚焦、失焦事件" class="hui-input" />
+	        </div>
+	    </div>
+    </div>
+</div>
+<script src="../js/hui.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+hui('#btn1').click(function(){hui.toast('单击');});
+hui('#btn2').longTap(function(){hui.toast('长按');});
+hui('#input1').change(function(){hui.toast(this.value);});
+hui('#input2').focusIn(function(){hui.toast('聚焦');});
+hui('#input2').focusOut(function(){hui.toast('失焦');});
+</script>
+</body>
+</html>

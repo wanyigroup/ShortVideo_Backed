@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>HUI </title>
+<link rel="stylesheet" type="text/css" href="../css/hui.css" />
+</head>
+<body>
+<header class="hui-header">
+	<div id="hui-back"></div>
+	<h1>HUI </h1>
+</header>
+<div class="hui-wrap">
+	<div class="hui-center-title" style="margin-top:15px;"><h1>AJAX样例</h1></div>
+	<div style="padding:20px 28px;">
+		<button type="button" class="hui-button hui-button-large" id="btn1">AJAX - GET</button>
+		<button type="button" class="hui-button hui-button-large" id="btn2" style="margin-top:15px;">AJAX - POST</button>
+		<button type="button" class="hui-button hui-button-large" id="btn3" style="margin-top:15px;">简化的 GET</button>
+		<button type="button" class="hui-button hui-button-large" id="btn4" style="margin-top:15px;">简化的 POST</button>
+		<button type="button" class="hui-button hui-button-large" id="btn5" style="margin-top:15px;">GET JSON</button>
+		<button type="button" class="hui-button hui-button-large" id="btn6" style="margin-top:15px;">POST JSON</button>
+		<button type="button" class="hui-button hui-button-large" id="btn7" style="margin-top:15px;">POST 数据形式为JSON</button>
+	</div>
+</div>
+<script type="text/javascript" src="../js/hui.js" charset="UTF-8"></script>
+<script type="text/javascript">
+hui('#btn1').click(function(){
+	hui.ajax({
+		url : 'http://hoa.hcoder.net',
+		beforeSend : function(){hui.loading();},
+		complete   : function(){hui.closeLoading();},
+		success : function(res){hui.toast(res);},
+		error : function(e){
+			console.log(JSON.stringify(e));
+			hui.iconToast('读取消息失败', 'warn');
+		}
+	});
+});
+hui('#btn2').click(function(){
+	hui.ajax({
+		url  : 'http://hoa.hcoder.net/index.php',
+		type : 'POST',
+		data : {name:'hcoder', age : 18},
+		beforeSend : function(){hui.loading();},
+		complete   : function(){hui.closeLoading();},
+		success : function(res){
+			console.log(res);
+			hui.toast(res.name);
+		},
+		error : function(e){
+			console.log(JSON.stringify(e));
+			hui.iconToast('读取消息失败', 'warn');
+		},
+		'backType' : "JSON"
+	});
+});
+hui('#btn3').click(function(){
+	hui.get(
+		'http://hoa.hcoder.net/index.php',
+		function(res){
+			console.log(res);
+			hui.toast(res);
+		},
+		function(e){
+			hui.iconToast('读取消息失败', 'warn');
+		}
+	);
+});
+hui('#btn4').click(function(){
+	hui.post(
+		'http://hoa.hcoder.net/index.php',
+		{name:'hcoder', age:18},
+		function(res){
+			console.log(res);
+			hui.toast(res);
+		},
+		function(e){
+			hui.iconToast('读取消息失败', 'warn');
+		}
+	);
+});
+hui('#btn5').click(function(){
+	hui.getJSON(
+		'http://hoa.hcoder.net/index.php?m=getJson',
+		function(res){
+			console.log(res);
+			hui.toast(res.name +' 版本 : ' + res.verson);
+		},
+		function(e){
+			hui.iconToast('读取消息失败', 'warn');
+		}
+	);
+});
+
+hui('#btn6').click(function(){
+	hui.postJSON(
+		'http://hoa.hcoder.net/index.php',
+		{name:'hcoder', age:20},
+		function(res){
+			console.log(res);
+			hui.toast(res.name +' age : ' + res.age);
+		},
+		function(e){
+			hui.iconToast('读取消息失败', 'warn');
+		}
+	);
+});
+hui('#btn7').click(function(){
+	/*
+	后端代码示例 php 版本
+	$data = file_get_contents("php://input");
+	$data = json_decode($data);
+	json_encode($data);
+	*/
+	hui.ajax({
+		url  : 'http://hoa.hcoder.net/index.php?m=postJson',
+		type : 'POST',
+		data : {
+			//json形式的数据
+			name : "hcoder",
+        	age  : 22,
+        	sex  : "男"
+		},
+		beforeSend : function(){hui.loading();},
+		complete   : function(){hui.closeLoading();},
+		ContentType : "application/json",
+		success : function(res){
+			console.log(res);
+			console.log(res.name);
+			hui.toast("请观察控制台");
+		},
+		error : function(e){
+			console.log(JSON.stringify(e));
+			hui.iconToast('读取消息失败', 'warn');
+		},
+		backType : "JSON"
+	});
+});
+</script>
+</body>
+</html>

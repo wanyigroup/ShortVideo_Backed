@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>HUI</title>
+<link rel="stylesheet" type="text/css" href="../css/hui.css" />
+</head>
+<body>
+<header class="hui-header">
+    <div id="hui-back"></div>
+    <h1>HUI 值操作</h1>
+</header>
+<div class="hui-wrap">
+	<div class="hui-common-title" style="margin-top:15px;">
+		<div class="hui-common-title-line"></div>
+		<div class="hui-common-title-txt">val()</div>
+		<div class="hui-common-title-line"></div>
+	</div>
+	<div>
+		<form style="padding:10px;" class="hui-form" id="form1">
+	        <div class="hui-form-items">
+	        	<div class="hui-form-items-title">您的称呼</div>
+	            <input type="text" class="hui-input hui-input-clear" id="input1" name="nickname" placeholder="如：张三" />
+	        </div>
+	        <div style="padding-top:15px;">
+	        	<button type="button" class="hui-button hui-fr hui-primary" style="margin-left:12px;">设置值</button>
+	        	<button type="button" class="hui-button hui-fr hui-danger">获取值</button>
+	        </div>
+	    </form>
+	</div>
+</div>
+<script src="../js/hui.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+hui('button').eq(0).click(function(){
+	hui('#input1').val('test...');
+});
+hui('button').eq(1).click(function(){
+	var val = hui('#input1').val();
+	hui.toast(val);
+});
+</script>
+</body>
+</html>

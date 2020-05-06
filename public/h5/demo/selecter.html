@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>HUI</title>
+<link rel="stylesheet" type="text/css" href="../css/hui.css" />
+<script src="../js/hui.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+<header class="hui-header">
+    <div id="hui-back"></div>
+    <h1>HUI 选择器</h1>
+</header>
+<div class="hui-wrap">
+	<div class="hui-common-title" style="margin-top:15px;">
+		<div class="hui-common-title-line"></div>
+		<div class="hui-common-title-txt">ID 选择器</div>
+		<div class="hui-common-title-line"></div>
+	</div>
+	<div class="hui-list" style="margin:10px 20px;">
+		<ul>
+			<li><div class="hui-list-text" id="li01">li1</div></li>
+			<li><div class="hui-list-text">li2</div></li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+	// id 选择器
+	hui('#li01').css({color:'#3388FF'});
+	</script>
+	<div class="hui-common-title" style="margin-top:15px;">
+		<div class="hui-common-title-line"></div>
+		<div class="hui-common-title-txt">类 选择器</div>
+		<div class="hui-common-title-line"></div>
+	</div>
+	<div class="hui-list" style="margin:10px 20px;">
+		<ul>
+			<li><div class="hui-list-text lired">li1</div></li>
+			<li><div class="hui-list-text">li2</div></li>
+			<li><div class="hui-list-text lired">li3</div></li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+	// 类 选择器
+	hui('.lired').css({color:'#3388FF'});
+	</script>
+	<div class="hui-common-title" style="margin-top:15px;">
+		<div class="hui-common-title-line"></div>
+		<div class="hui-common-title-txt">标签 选择器</div>
+		<div class="hui-common-title-line"></div>
+	</div>
+	<div class="hui-list" style="margin:10px 20px;">
+		<ul id="ul3">
+			<li><div class="hui-list-text">li1</div></li>
+			<li><div class="hui-list-text">li2</div></li>
+			<li><div class="hui-list-text">li3</div></li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+	// 标签 选择器【使用空格可以进行基于父子关系的元素选择】
+	hui('#ul3 li div').css({color:'#3388FF'});
+	</script>
+</div>
+</body>
+</html>

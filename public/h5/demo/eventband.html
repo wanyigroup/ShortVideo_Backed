@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>HUI</title>
+<link rel="stylesheet" type="text/css" href="../css/hui.css" />
+</head>
+<body>
+<header class="hui-header">
+    <div id="hui-back"></div>
+    <h1>HUI 事件绑定及触发</h1>
+</header>
+<div class="hui-wrap">
+	<div class="hui-common-title" style="margin-top:15px;">
+		<div class="hui-common-title-line"></div>
+		<div class="hui-common-title-txt">事件绑定及触发</div>
+		<div class="hui-common-title-line"></div>
+	</div>
+	<div class="hui-text" style="padding:15px 30px;">
+		下面代码演示了：<br />
+		1、为 按钮1 绑定click事件；<br />
+		2、点击 按钮2 触发 按钮1的点击事件
+	</div>
+	<div style="padding:15px 30px;">
+		<button type="button" class="hui-button hui-button-large">按钮1</button>
+		<button type="button" class="hui-button hui-button-large" style="margin-top:15px;">按钮2</button>
+	</div>
+</div>
+<script src="../js/hui.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+//绑定事件
+hui('button').eq(0).click(function(){hui.toast(1);});
+hui('button').eq(1).click(function(){
+	//使用 trigger 触发事件
+	hui('button').eq(0).trigger('click');
+});
+</script>
+</body>
+</html>

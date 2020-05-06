@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>HUI</title>
+<link rel="stylesheet" type="text/css" href="../css/hui.css" />
+</head>
+<body>
+<header class="hui-header">
+    <div id="hui-back"></div>
+    <h1>HUI on</h1>
+</header>
+<div class="hui-wrap">
+	<div class="hui-common-title" style="margin-top:15px;">
+		<div class="hui-common-title-line"></div>
+		<div class="hui-common-title-txt">on 演示</div>
+		<div class="hui-common-title-line"></div>
+	</div>
+	<div id="testWrap" style="text-align:center; padding:30px 0px 18px 0px;"></div>
+</div>
+<script src="../js/hui.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+//将事件委托给追加元素的父级可以避免IOS的bug
+hui('#testWrap').on('click', '.test' , function(obj){
+    hui.toast(obj.innerHTML);
+});
+
+//动态追加 html 元素
+var str = '';
+for(var i = 0; i < 5; i++){
+    str += '<div style="line-height:50px; background:#3388FF; color:#FFF; margin:10px 50px;" class="test">追加的元素 : '+i+'</div>';
+}
+document.getElementById('testWrap').innerHTML = str;
+</script>
+</body>
+</html>

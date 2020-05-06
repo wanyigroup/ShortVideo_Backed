@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>HUI</title>
+<link rel="stylesheet" type="text/css" href="../css/hui.css" />
+</head>
+<body>
+<header class="hui-header">
+    <div id="hui-back"></div>
+    <h1>HUI </h1>
+</header>
+<div class="hui-wrap">
+	<div class="hui-common-title" style="margin-top:15px;">
+		<div class="hui-common-title-line"></div>
+		<div class="hui-common-title-txt">switch 开关演示</div>
+		<div class="hui-common-title-line"></div>
+	</div>
+	<div style="padding:20px;">
+        <div class="hui-switch" id="switchBox"><span>Off</span><div class="hui-switch-in"></div></div>
+	</div>
+	<div style="padding:0px 20px;">
+        <button type="button" class="hui-button hui-button-large" id="btn">获取switch的值</button>
+	</div>
+	<div class="hui-common-title" style="margin-top:55px;">
+		<div class="hui-common-title-line"></div>
+		<div class="hui-common-title-txt">默认开启</div>
+		<div class="hui-common-title-line"></div>
+	</div>
+	<div style="padding:20px;">
+        <div class="hui-switch hui-switch-on" id="switchBox2"><span>On</span><div class="hui-switch-in"></div></div>
+	</div>
+	<div style="padding:0px 20px;">
+        <button type="button" class="hui-button hui-button-large" id="btn2">获取switch的值</button>
+	</div>
+</div>
+<script src="../js/hui.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+hui('#switchBox').switchBox(['Off','On'],function(res){
+    if(res){
+        hui.toast('开关打开');
+    }else{
+        hui.toast('开关关闭');
+    }
+}, true);
+hui('#btn').click(function(){
+    var res = hui('#switchBox').getSwitchVal();
+    if(res){
+        hui.toast('开关打开');
+    }else{
+        hui.toast('开关关闭');
+    }
+});
+
+hui('#switchBox2').switchBox(['Off','On'],function(res){
+    if(res){
+        hui.toast('开关打开');
+    }else{
+        hui.toast('开关关闭');
+    }
+}, true);
+hui('#btn2').click(function(){
+    var res = hui('#switchBox2').getSwitchVal();
+    if(res){
+        hui.toast('开关打开');
+    }else{
+        hui.toast('开关关闭');
+    }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>HUI</title>
+<link rel="stylesheet" type="text/css" href="../css/hui.css" />
+</head>
+<body>
+<header class="hui-header">
+    <div id="hui-back"></div>
+    <h1>HUI 滚动公告</h1>
+</header>
+<div class="hui-wrap">
+	<div class="hui-common-title" style="margin-top:25px;">
+		<div class="hui-common-title-line"></div>
+		<div class="hui-common-title-txt">单行公告</div>
+		<div class="hui-common-title-line"></div>
+	</div>
+	<div style="background:#FFF; padding:0px 15px; margin:10px;" class="hui-flex">
+		<div style="height:46px; width:20px;">
+			<img src="../img/spiker.png" width="20" style="padding:13px 0px;" />
+		</div>
+		<div class="hui-scroll-news" id="scrollnew1">
+			<div class="hui-scroll-news-items"><a href="javascript:hui.toast('test...');">一块橘子皮就能秒开你的手机</a></div>
+			<div class="hui-scroll-news-items">新一轮成品油价或迎年内首次"二连涨"</div>
+			<div class="hui-scroll-news-items">暴雪再袭长三角：交通遭重创 用电量增 菜价涨</div>
+		</div>
+	</div>
+	<div class="hui-common-title" style="margin-top:30px;">
+		<div class="hui-common-title-line"></div>
+		<div class="hui-common-title-txt">多行公告</div>
+		<div class="hui-common-title-line"></div>
+	</div>
+	<div style="background:#FFF; margin:10px;" class="hui-flex">
+		<div style="height:56px; margin:10px;">
+			<img src="../img/scrollNews.png" width="56" />
+		</div>
+		<div class="hui-scroll-news" id="scrollnew2" style="height:56px;">
+			<div class="hui-scroll-news-items"><a href="javascript:hui.toast('test...');">一块橘子皮就能秒开你的手机</a></div>
+			<div class="hui-scroll-news-items">新一轮成品油价或迎年内首次"二连涨"</div>
+			<div class="hui-scroll-news-items">暴雪再袭长三角：交通遭重创 用电量增 菜价涨</div>
+		</div>
+	</div>
+</div>
+<script src="../js/hui.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+hui.scrollNews(scrollnew1);
+hui.scrollNews(scrollnew2, 8000);
+</script>
+</body>
+</html>

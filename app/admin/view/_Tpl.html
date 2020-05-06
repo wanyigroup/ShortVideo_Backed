@@ -1,0 +1,59 @@
+{if preg_match('/\/admin\/|admin\.php|admin_d75KABNWt\.php/i', url('dashboard/index'))}
+<div class="alert alert-danger-light">
+    {:__('Security tips')}
+</div>
+{/if}
+
+
+#不带标签
+<div class="panel panel-default panel-intro">
+
+    <div class="panel-heading">
+        <div class="panel-lead">
+            <em>控制台</em>
+            用于展示当前系统中的统计数据、统计报表及重要实时数据
+        </div>
+    </div>
+
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-xs-12">
+                {:__('Custom zone')}
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+#带标签
+<div class="panel panel-default panel-intro">
+
+    <div class="panel-heading">
+        <div class="panel-lead">
+            <em>控制台</em>
+            用于展示当前系统中的统计数据、统计报表及重要实时数据
+        </div>
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#one" data-toggle="tab">{:__('Dashboard')}</a></li>
+            <li><a href="#two" data-toggle="tab">{:__('Custom')}</a></li>
+        </ul>
+    </div>
+
+    <div class="panel-body">
+        <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade active in" id="one">
+                aaa
+            </div>
+
+            <div class="tab-pane fade" id="two">
+                <div class="row">
+                    <div class="col-xs-12">
+                        {:__('Custom zone')}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

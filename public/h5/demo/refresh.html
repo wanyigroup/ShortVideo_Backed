@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>HUI </title>
+<link rel="stylesheet" type="text/css" href="../css/hui.css" />
+</head>
+<body background="#f4f5f6;">
+<header class="hui-header">
+    <div id="hui-back"></div>
+    <h1>HUI 下拉刷新</h1>
+</header>
+<div class="hui-wrap">
+    <div id="refreshContainer" class="hui-refresh">
+    	<!-- hui-refresh-icon 为下拉动画展示区域 -->
+        <div class="hui-refresh-icon"></div>
+        <div class="hui-refresh-content hui-list" id="list">
+        	<!-- 内容展示区域 -->
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="../js/hui.js"></script>
+<script src="../js/hui-refresh-load-more.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+hui.refresh('#refreshContainer', refresh);
+function refresh(){
+    if(hui.refreshNumber < 1){hui.loading('加载中...');}
+    hui.get(
+        'http://hoa.hcoder.net/index.php?user=hcoder&pwd=hcoder&m=list1&page=1',
+        function(res){
+            var data = res.split('--hcSplitor--');
+            var html = '';
+            for(var i = 0; i < data.length; i++){
+                html += '<a href="javascript:hui.toast(\'hi.....\');"><div class="hui-list-text">'+data[i]+'</div></a>';
+            }
+            hui('#list').html(html);
+            hui.endRefresh();
+            //关闭loading
+            hui.loading('加载中...', true);
+        },
+        function(){
+            hui.loading('加载中...', true);
+            hui.toast('连接服务器失败！');
+            hui.endRefresh();
+        }
+    );
+}
+</script>
+</body>
+</html>

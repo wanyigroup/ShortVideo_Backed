@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>HUI</title>
+<link rel="stylesheet" type="text/css" href="../css/hui.css" />
+</head>
+<body>
+<header class="hui-header">
+    <div id="hui-back"></div>
+    <h1>HUI 窗口、偏移值、滚动条</h1>
+</header>
+<div class="hui-wrap">
+	<div class="hui-common-title" style="margin-top:15px;">
+		<div class="hui-common-title-line"></div>
+		<div class="hui-common-title-txt">获取窗口信息</div>
+		<div class="hui-common-title-line"></div>
+	</div>
+	<div id="winfo" class="hui-text hui-text-center" style="line-height:50px;"></div>
+	<div class="hui-common-title" style="margin-top:15px;">
+		<div class="hui-common-title-line"></div>
+		<div class="hui-common-title-txt">控制窗口滚动条</div>
+		<div class="hui-common-title-line"></div>
+	</div>
+	<div style="width:90%; margin:20px auto;">
+		<button type="button" class="hui-button hui-button-large">点击这里控制窗口滚动条</button>
+	</div>
+	<div style="height:2000px;">
+		
+	</div>
+</div>
+<script src="../js/hui.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+hui.alert('偏移值计算请观察控制台');
+var winInfo = hui.winInfo();
+hui('#winfo').html('窗口宽度 ：' + winInfo.width + 'px' + " 窗口高度 ：" + winInfo.height +'px');
+//获取div#winfo的偏移值
+var offsets = hui('#winfo').offset();
+console.log(JSON.stringify(offsets));
+//控制窗口滚动条
+hui('button').click(function(){
+	hui.scrollTop(200);
+});
+</script>
+</body>
+</html>

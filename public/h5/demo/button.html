@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>HUI - 按钮组件</title>
+<link rel="stylesheet" type="text/css" href="../css/hui.css" />
+</head>
+<body>
+<header class="hui-header">
+    <div id="hui-back"></div>
+    <h1>HUI - 按钮组件</h1>
+</header>
+<div class="hui-wrap">
+	<div class="hui-common-title" style="margin-top:15px;">
+		<div class="hui-common-title-line"></div>
+		<div class="hui-common-title-txt">按钮组件演示</div>
+		<div class="hui-common-title-line"></div>
+	</div>
+	<div style="padding:28px 20px 10px 20px;" id="btnList1">
+        <button type="button" class="hui-button hui-fl">普通按钮</button>
+        <button type="button" class="hui-button hui-danger hui-fl" style="margin-left:10px;">警告按钮</button>
+        <button type="button" class="hui-button hui-primary hui-fl" style="margin-left:10px;">主要按钮</button>
+    </div>
+    <div style="padding:1px 20px;" id="btnList2">
+        <button type="button" class="hui-button hui-button-large" style="margin-top:15px;">宽度100%的按钮</button>
+        <button type="button" class="hui-button hui-button-large hui-primary" style="margin-top:15px;">宽度100%的按钮</button>
+        <button type="button" class="hui-button hui-button-large hui-danger" style="margin-top:15px;">宽度100%的按钮</button>
+        <button type="button" class="hui-button hui-button-large" style="margin-top:15px;" disabled="disabled">禁用的按钮</button>
+    </div>
+    <div style="padding:10px 20px;">
+        <button type="button" class="hui-button hui-button-large" style="margin-top:15px;" id="loadingBtn1">loading按钮</button>
+        <button type="button" class="hui-button hui-button-large" style="margin-top:15px;" id="loadingBtn2">点击后loading并自动还原</button>
+        <button type="button" class="hui-button hui-button-large" style="margin-top:15px;"><span class="hui-icons hui-icons-warn"></span>图标按钮</button>
+    </div>
+    <div style="padding:10px 20px;">
+        <button type="button" class="hui-button hui-button-small hui-fl">小按钮</button>
+        <button type="button" class="hui-button hui-button-small hui-danger hui-fl" style="margin:0px 10px;">小按钮</button>
+        <button type="button" class="hui-button hui-button-small hui-primary hui-fl">小按钮</button>
+    </div>
+</div>
+<script src="../js/hui.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+hui('#btnList1').find('button').click(function(){hui.toast('ok');});
+hui('#btnList2').find('button').click(function(){hui.toast('Hi...');});
+hui('#loadingBtn1').loadingButton();
+hui('#loadingBtn2').click(function(){
+    if(hui(this).buttonIsLoading()){return false;}
+    hui(this).loadingButton('加载中...');
+    setTimeout(function(){
+        hui('#loadingBtn2').resetLoadingButton();
+    }, 2000);
+});
+</script>
+</body>
+</html>

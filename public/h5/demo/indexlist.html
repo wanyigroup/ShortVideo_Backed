@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>HUI </title>
+<link rel="stylesheet" type="text/css" href="../css/hui.css" />
+<style>
+#hui-index-list-bar{width:25px; height:100%; position:fixed; z-index:2; top:46px; right:0px; background:#E4E4E4; padding-top:8px;}
+#hui-index-list-bar a{display:block; width:100%; height:20px; line-height:20px; text-align:center; font-size:13px; color:#A3A3A3;}
+.hui-index-list-title{height:44px; background:#F8F8F8; line-height:44px; padding:0px 10px; border-bottom:1px solid #E4E3E6;}
+#hui-index-list-search{width:100%; height:26px; border-bottom:1px solid #E4E3E6; position:fixed; top:44px; left:0px; background:#FFFFFF;  z-index:1; padding:10px 0px;}
+#hui-index-list-search input{width:100%; padding:0px 44px; height:26px; line-height:26px; border:0px; box-sizing:border-box; -webkit-box-sizing:border-box; -moz-box-sizing:border-box; -o-box-sizing:border-box; webkit-appearance:none; -moz-appearance:none; appearance:none;}
+#hui-index-list-search:before{content:'\e714'; width:44px; height:44px; line-height:44px; text-align:center; display:block; position:absolute; left:0px; top:0px; font-family:"hui-font"; font-size:16px;}
+</style>
+</head>
+<body>
+<header class="hui-header">
+    <div id="hui-back"></div>
+    <h1>HUI 索引列表</h1>
+</header>
+<div class="hui-wrap">
+    <div id="hui-index-list-search">
+        <input type="text" name="seach" id="hui-index-list-search-input" value="" placeholder="请输入关键字进行搜索" />
+    </div>
+    <!-- 列表数据 循环  hui-index-list-title 和 hui-list -->
+    <div class="hui-index-list-title" id="hui-index-list-title_A">A</div>
+    <div class="hui-list">
+        <a href="javascript:selectTodo('阿坝');"><div class="hui-list-text">阿坝</div></a>
+        <a href="javascript:selectTodo('阿拉善');"><div class="hui-list-text">阿拉善</div></a>
+        <a href="javascript:selectTodo('阿里');"><div class="hui-list-text">阿里</div></a>
+        <a href="javascript:selectTodo('安康');"><div class="hui-list-text">安康</div></a>
+        <a href="javascript:selectTodo('安庆');"><div class="hui-list-text">安庆</div></a>
+        <a href="javascript:selectTodo('鞍山');"><div class="hui-list-text">鞍山</div></a>
+        <a href="javascript:selectTodo('安顺');"><div class="hui-list-text">安顺</div></a>
+        <a href="javascript:selectTodo('安阳');"><div class="hui-list-text">安阳</div></a>
+        <a href="javascript:selectTodo('澳门');"><div class="hui-list-text">澳门</div></a>
+    </div>
+    <div class="hui-index-list-title" id="hui-index-list-title_B">B</div>
+    <div class="hui-list">
+        <a href="javascript:selectTodo('北京');"><div class="hui-list-text">北京</div></a>
+        <a href="javascript:selectTodo('白银');"><div class="hui-list-text">白银</div></a>
+        <a href="javascript:selectTodo('保定');"><div class="hui-list-text">保定</div></a>
+        <a href="javascript:selectTodo('宝鸡');"><div class="hui-list-text">宝鸡</div></a>
+        <a href="javascript:selectTodo('保山');"><div class="hui-list-text">保山</div></a>
+        <a href="javascript:selectTodo('包头');"><div class="hui-list-text">包头</div></a>
+        <a href="javascript:selectTodo('巴中');"><div class="hui-list-text">巴中</div></a>
+        <a href="javascript:selectTodo('北海');"><div class="hui-list-text">北海</div></a>
+        <a href="javascript:selectTodo('蚌埠');"><div class="hui-list-text">蚌埠</div></a>
+        <a href="javascript:selectTodo('本溪');"><div class="hui-list-text">本溪</div></a>
+        <a href="javascript:selectTodo('毕节');"><div class="hui-list-text">毕节</div></a>
+        <a href="javascript:selectTodo('滨州');"><div class="hui-list-text">滨州</div></a>
+        <a href="javascript:selectTodo('百色');"><div class="hui-list-text">百色</div></a>
+        <a href="javascript:selectTodo('亳州');"><div class="hui-list-text">亳州</div></a>
+    </div>
+    <div class="hui-index-list-title" id="hui-index-list-title_C">C</div>
+    <div class="hui-list">
+        <a href="javascript:selectTodo('重庆');"><div class="hui-list-text">重庆</div></a>
+        <a href="javascript:selectTodo('成都');"><div class="hui-list-text">成都</div></a>
+        <a href="javascript:selectTodo('长沙');"><div class="hui-list-text">长沙</div></a>
+        <a href="javascript:selectTodo('长春');"><div class="hui-list-text">长春</div></a>
+        <a href="javascript:selectTodo('沧州');"><div class="hui-list-text">沧州</div></a>
+        <a href="javascript:selectTodo('常德');"><div class="hui-list-text">常德</div></a>
+        <a href="javascript:selectTodo('昌都');"><div class="hui-list-text">昌都</div></a>
+        <a href="javascript:selectTodo('长治');"><div class="hui-list-text">长治</div></a>
+        <a href="javascript:selectTodo('常州');"><div class="hui-list-text">常州</div></a>
+        <a href="javascript:selectTodo('巢湖');"><div class="hui-list-text">巢湖</div></a>
+        <a href="javascript:selectTodo('潮州');"><div class="hui-list-text">潮州</div></a>
+        <a href="javascript:selectTodo('承德');"><div class="hui-list-text">承德</div></a>
+        <a href="javascript:selectTodo('郴州');"><div class="hui-list-text">郴州</div></a>
+        <a href="javascript:selectTodo('赤峰');"><div class="hui-list-text">赤峰</div></a>
+        <a href="javascript:selectTodo('池州');"><div class="hui-list-text">池州</div></a>
+        <a href="javascript:selectTodo('崇左');"><div class="hui-list-text">崇左</div></a>
+        <a href="javascript:selectTodo('楚雄');"><div class="hui-list-text">楚雄</div></a>
+        <a href="javascript:selectTodo('滁州');"><div class="hui-list-text">滁州</div></a>
+        <a href="javascript:selectTodo('朝阳');"><div class="hui-list-text">朝阳</div></a>
+    </div>
+    <div class="hui-index-list-title" id="hui-index-list-title_D">D</div>
+    <div class="hui-list">
+        <a href="javascript:selectTodo('大连');"><div class="hui-list-text">大连</div></a>
+        <a href="javascript:selectTodo('东莞');"><div class="hui-list-text">东莞</div></a>
+        <a href="javascript:selectTodo('大理');"><div class="hui-list-text">大理</div></a>
+        <a href="javascript:selectTodo('丹东');"><div class="hui-list-text">丹东</div></a>
+        <a href="javascript:selectTodo('大庆');"><div class="hui-list-text">大庆</div></a>
+        <a href="javascript:selectTodo('大同');"><div class="hui-list-text">大同</div></a>
+        <a href="javascript:selectTodo('大兴安岭');"><div class="hui-list-text">大兴安岭</div></a>
+        <a href="javascript:selectTodo('德宏');"><div class="hui-list-text">德宏</div></a>
+        <a href="javascript:selectTodo('德阳');"><div class="hui-list-text">德阳</div></a>
+        <a href="javascript:selectTodo('德州');"><div class="hui-list-text">德州</div></a>
+        <a href="javascript:selectTodo('定西');"><div class="hui-list-text">定西</div></a>
+        <a href="javascript:selectTodo('迪庆');"><div class="hui-list-text">迪庆</div></a>
+        <a href="javascript:selectTodo('东营');"><div class="hui-list-text">东营</div></a>
+    </div>
+</div>
+<div id="hui-index-list-bar">
+    <a>A</a>
+    <a>B</a>
+    <a>C</a>
+    <a>D</a>
+    <a>E</a>
+    <a>F</a>
+    <a>G</a>
+    <a>H</a>
+    <a>I</a>
+    <a>J</a>
+    <a>K</a>
+    <a>L</a>
+    <a>M</a>
+    <a>N</a>
+    <a>O</a>
+    <a>P</a>
+    <a>Q</a>
+    <a>R</a>
+    <a>S</a>
+    <a>T</a>
+    <a>U</a>
+    <a>V</a>
+    <a>W</a>
+    <a>X</a>
+    <a>Y</a>
+    <a>Z</a>
+</div>
+<div id="scroll" style="display:none;"></div>
+<script type="text/javascript" src="../js/hui.js"></script>
+<script>
+hui.plusReady(function(){
+	//头部搜索适应沉浸式【非app开发可移除】
+	hui('#hui-index-list-search').css({top: 44 + hui.immersedStatusbarHeight + 'px'});
+	hui('#hui-index-list-bar').css({top: 44 + hui.immersedStatusbarHeight + 'px'});
+});
+/*
+ * 说明:
+ * 城市例子展示到了 D，真实项目开发按照结构完成部署即可
+ * 请按照以下js实现 indexList
+ */
+//1、右侧字母序号点击事件绑定
+hui('#hui-index-list-bar').find('a').click(function(){skipToIndex(this.innerHTML);});
+//2、跳转到指定字母开头处函数定义
+function skipToIndex(index){
+    var listTitle = hui('#hui-index-list-title_'+index);
+    if(listTitle.length < 1){hui.toast('没有对应的数据，演示数据到D'); return;}
+    var sets = listTitle.offset();
+    //减掉46是头部导航的高度 根据实际需求设置
+    hui.scrollTop(sets.top - 90);
+}
+//3、定义列表数据点击函数 根据实际需求自行编写代码即可
+function selectTodo(val){
+    hui.toast(val);
+}
+//4、搜索
+var sreachInput = document.getElementById('hui-index-list-search-input');
+sreachInput.addEventListener('keyup', function(){
+    var k = this.value;
+    if(k.length < 1){return false;}
+    var lists = hui('.hui-list-text');
+    for(var i = 0; i < lists.length; i++){
+    	var _sobj = lists.dom[i];
+    	if(_sobj.innerHTML.indexOf(k) != -1){
+            var sets = hui.offset(_sobj);
+            console.log(sets.top);
+            setTimeout(function(){hui.scrollTop(sets.top - 90 - hui.immersedStatusbarHeight);}, 300);
+            break;
+        }
+    }
+});
+</script>
+</body>
+</html>

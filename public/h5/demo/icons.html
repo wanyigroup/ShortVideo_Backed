@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>HUI</title>
+<link rel="stylesheet" type="text/css" href="../css/hui.css" />
+</head>
+<body>
+<header class="hui-header">
+    <div id="hui-back"></div>
+    <h1>HUI </h1>
+</header>
+<div class="hui-wrap">
+	<div class="hui-center-title" style="margin-top:15px;"><h1>演示样例</h1></div>
+    <div style="padding:10px;">
+	<div class="hui-speed-dial">
+		<ul></ul>
+	</div>
+    </div>
+</div>
+<script src="../js/hui.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+var icons = [   'hui-icons-menu', 'hui-icons-toast', "hui-icons-menu","hui-icons-img",
+				"hui-icons-left","hui-icons-number", "hui-icons-up","hui-icons-down",
+				"hui-icons-down2","hui-icons-progress", "hui-icons-success","hui-icons-range",
+				"hui-icons-warn","hui-icons-tab", "hui-icons-loading","hui-icons-picker",
+				"hui-icons-eyes","hui-icons-home", "hui-icons-switch","hui-icons-news",
+				"hui-icons-swipe","hui-icons-my", "hui-icons-forum","hui-icons-nav",
+				"hui-icons-menu-point","hui-icons-star", "hui-icons-msg","hui-icons-water-fall" ,
+				"hui-icons-search","hui-icons-register" , "hui-icons-write","hui-icons-check" ,
+				"hui-icons-loading2","hui-icons-clone" , "hui-icons-remove","hui-icons-like" ,
+				"hui-icons-pause","hui-icons-stop" , "hui-icons-shopping-cart"
+		];
+var html  = '';
+for(var i = 0; i < icons.length; i++){
+	html += '<li>'+
+		'<div class="hui-speed-dial-icons">'+
+            '<span class="hui-icons '+icons[i]+'"></span>'+
+        '</div>'+
+        '<div class="hui-speed-dial-text">'+icons[i].replace('hui-icons-', '')+'</div>';
+	'</li>';
+	hui('.hui-speed-dial ul').html(html);
+}
+</script>
+</body>
+</html>

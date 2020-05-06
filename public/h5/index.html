@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>HUI 普通列表</title>
+<link rel="stylesheet" type="text/css" href="css/hui.css" />
+</head>
+<body style="background:#FFFFFF;">
+<div class="hui-wrap">
+	<img src="img/banner.png" width="100%" />
+</div>
+<script type="text/javascript">
+//创建窗口
+function createWin(){
+	var view = hui.create('./demo/h5createwindow.html',{},true,{name:'hcoder', age:'3.0'});
+	console.log(JSON.stringify(view));
+	hui.toast('窗口创建成功 ^_^');
+	//hui.create()函数返回创建的窗口对象，默认只是创建窗口并不展示【即为预加载】，使用show方法可以打开窗口
+	//plus.webview.show(view);
+}
+</script>
+<div class="hui-wrap">
+	<div class="hui-accordion">
+		<div class="hui-accordion-title">全部组件</div>
+		<div class="hui-accordion-content hui-list">
+			<a href="javascript:hui.open('./demo/base.html');">
+        		<div class="hui-list-icons"><img src="./img/index/base.png" /></div>
+        		<div class="hui-list-text">
+        			基础文本<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+        	</a>
+        	<a href="javascript:hui.open('./demo/flex.html');">
+        		<div class="hui-list-icons"><img src="./img/index/flex.png" /></div>
+        		<div class="hui-list-text">
+        			基础布局<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+        	</a>
+        	<a href="javascript:hui.open('./demo/header.html');">
+        		<div class="hui-list-icons"><img src="./img/index/header.png" /></div>
+        		<div class="hui-list-text">
+        			头部导航及菜单<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+        	</a>
+        	<a href="javascript:hui.open('./demo/footer.html');">
+        		<div class="hui-list-icons"><img src="./img/index/footer.png" /></div>
+        		<div class="hui-list-text">
+        			底部导航 + 消息提醒<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+            </a>
+			<a href="javascript:hui.open('./demo/list.html');">
+        		<div class="hui-list-icons"><img src="./img/index/list.png" /></div>
+        		<div class="hui-list-text">
+        			通用列表<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+            </a>
+            <a href="javascript:hui.open('./demo/medialist.html');">
+        		<div class="hui-list-icons"><img src="./img/index/medialist.png" /></div>
+        		<div class="hui-list-text">
+        			媒体列表<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+            </a>
+            <a href="javascript:hui.open('./demo/imglist.html');">
+        		<div class="hui-list-icons"><img src="./img/index/img.png" /></div>
+        		<div class="hui-list-text">
+        			图片列表<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+            </a>
+	        <a href="javascript:hui.open('./demo/button.html',{}, true);">
+        		<div class="hui-list-icons"><img src="./img/index/btn.png" /></div>
+        		<div class="hui-list-text">
+        			通用按钮<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+            </a>
+	        <a href="javascript:hui.open('./demo/badge.html');">
+        		<div class="hui-list-icons"><img src="./img/index/number.png" /></div>
+        		<div class="hui-list-text">
+        			数字标示<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+			</a>
+            <a href="javascript:hui.open('./demo/toast.html');">
+        		<div class="hui-list-icons"><img src="./img/index/toast.png" /></div>
+        		<div class="hui-list-text">
+        			Toast 提醒<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+            </a>
+            <a href="javascript:hui.open('./demo/dialogs.html');">
+        		<div class="hui-list-icons"><img src="./img/index/dialog.png" /></div>
+        		<div class="hui-list-text">
+        			模态对话框<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+            </a>
+            <a href="javascript:hui.open('./demo/fullmsg.html');">
+        		<div class="hui-list-icons"><img src="./img/index/fullmsg.png" /></div>
+        		<div class="hui-list-text">
+        			全屏消息层<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+        	</a>
+            <a href="javascript:hui.open('./demo/loading.html');">
+        		<div class="hui-list-icons"><img src="./img/index/loading.png" /></div>
+        		<div class="hui-list-text">
+        			Loading 动画<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+            </a>
+            <a href="javascript:hui.open('./demo/actionsheet.html');">
+        		<div class="hui-list-icons"><img src="./img/index/actionsheet.png" /></div>
+        		<div class="hui-list-text">
+        			Action Sheet<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+            </a>
+            <a href="javascript:hui.open('./demo/progress.html');">
+        		<div class="hui-list-icons"><img src="./img/index/progress.png" /></div>
+        		<div class="hui-list-text">
+        			进度条<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+            </a>
+            <a href="javascript:hui.open('./demo/popmsg.html');">
+        		<div class="hui-list-icons"><img src="./img/index/msg.png" /></div>
+        		<div class="hui-list-text">
+        			popoverMsg<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+            </a>
+            <a href="javascript:hui.open('./demo/pager.html');">
+        		<div class="hui-list-icons"><img src="./img/index/pager.png" /></div>
+        		<div class="hui-list-text">
+        			分页页码<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+            </a>
+            <a href="javascript:hui.open('./demo/tags.html');">
+        		<div class="hui-list-icons"><img src="./img/index/tags.png" /></div>
+        		<div class="hui-list-text">
+        			标签组件<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+        	</a>
+        	<a href="javascript:hui.open('./demo/accordion.html');">
+        		<div class="hui-list-icons"><img src="./img/index/accordion.png" /></div>
+        		<div class="hui-list-text">
+        			折叠面板<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+            </a>
+            <a href="javascript:hui.open('./demo/tab.html');">
+        		<div class="hui-list-icons"><img src="./img/index/tab.png" /></div>
+        		<div class="hui-list-text">
+        			Tab 选项卡<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+            </a>
+            <a href="javascript:hui.open('./demo/segment.html');">
+        		<div class="hui-list-icons"><img src="./img/index/segment.png" /></div>
+        		<div class="hui-list-text">
+        			分段切换<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+        	</a>
+            <a href="javascript:hui.open('./demo/swipe.html');">
+        		<div class="hui-list-icons"><img src="./img/index/swipe.png" /></div>
+        		<div class="hui-list-text">
+        			轮播组件<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+            </a>
+            <a href="javascript:hui.open('./demo/lazy.html',{},true);">
+        		<div class="hui-list-icons"><img src="./img/index/lazy.png" /></div>
+        		<div class="hui-list-text">
+        			图片懒加载<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+            </a>
+            <a href="javascript:hui.open('./demo/refresh.html');">
+        		<div class="hui-list-icons"><img src="./img/index/refresh.png" /></div>
+        		<div class="hui-list-text">
+        			下拉刷新<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+        	</a>
+            <a href="javascript:hui.open('./demo/loadmore.html');">
+        		<div class="hui-list-icons"><img src="./img/index/loadmore.png" /></div>
+        		<div class="hui-list-text">
+        			上拉加载<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+            </a>
+            <a href="javascript:hui.open('./demo/picker.html');">
+        		<div class="hui-list-icons"><img src="./img/index/picker.png" /></div>
+        		<div class="hui-list-text">
+        			picker<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+            </a>
+            <a href="javascript:hui.open('./demo/datepicker.html');">
+        		<div class="hui-list-icons"><img src="./img/index/date.png" /></div>
+        		<div class="hui-list-text">
+        			date picker<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+            </a>
+            <a href="javascript:hui.open('./demo/scroll.html');">
+        		<div class="hui-list-icons"><img src="./img/index/scroll.png" /></div>
+        		<div class="hui-list-text">
+        			区域滚动<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+            </a>
+            <a href="javascript:hui.open('./demo/imgpreview.html');">
+        		<div class="hui-list-icons"><img src="./img/index/imgpreview.png" /></div>
+        		<div class="hui-list-text">
+        			图片预览【缩放】<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+            </a>
+            <a href="javascript:hui.open('./demo/waterfall.html');">
+        		<div class="hui-list-icons"><img src="./img/index/waterfall.png" /></div>
+        		<div class="hui-list-text">
+        			瀑布流<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+            </a>
+			<a href="javascript:hui.open('./demo/unfold.html');">
+        		<div class="hui-list-icons"><img src="./img/index/unfold.png" /></div>
+        		<div class="hui-list-text">
+        			展开全文<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+            </a>
+			<a href="javascript:hui.open('./demo/icons.html');">
+        		<div class="hui-list-icons"><img src="./img/index/icons.png" /></div>
+        		<div class="hui-list-text">
+        			常用图标【九宫格布局】<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+            </a>
+            <a href="javascript:hui.open('./demo/slidemenu.html');">
+        		<div class="hui-list-icons"><img src="./img/index/slidemenu.png" /></div>
+        		<div class="hui-list-text">
+        			侧滑菜单<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+            </a>
+            <a href="javascript:hui.open('./demo/imgcut.html');">
+        		<div class="hui-list-icons"><img src="./img/index/cut.png" /></div>
+        		<div class="hui-list-text">
+        			图片裁切<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+        	</a>
+        	<a href="javascript:hui.open('./demo/touchpwd.html');">
+        		<div class="hui-list-icons"><img src="./img/index/touchpwd.png" /></div>
+        		<div class="hui-list-text">
+        			手势密码<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+        	</a>
+        	<a href="javascript:hui.open('./demo/swipedo.html',{},true);">
+        		<div class="hui-list-icons"><img src="./img/index/fger.png" /></div>
+        		<div class="hui-list-text">
+        			滑动操作<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+        	</a>
+        	<a href="javascript:hui.open('./demo/countdown.html');">
+        		<div class="hui-list-icons"><img src="./img/index/countdown.png" /></div>
+        		<div class="hui-list-text">
+        			倒计时<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+			</a>
+			<a href="javascript:hui.open('./demo/scrollnews.html');">
+        		<div class="hui-list-icons"><img src="./img/index/scrollnews.png" /></div>
+        		<div class="hui-list-text">
+        			滚动公告<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+        	</a>
+		</div>
+	</div>
+	<div class="hui-accordion">
+		<div class="hui-accordion-title">表单元素</div>
+		<div class="hui-accordion-content hui-list">
+			<a href="javascript:hui.open('./demo/form.html');">
+        		<div class="hui-list-icons"><img src="./img/index/form.png" /></div>
+        		<div class="hui-list-text">
+        			表单元素及布局<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+            </a>
+            <a href="javascript:hui.open('./demo/formcheck.html');">
+        		<div class="hui-list-icons"><img src="./img/index/formcheck.png" /></div>
+        		<div class="hui-list-text">
+        			表单验证<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+            </a>
+            <a href="javascript:hui.open('./demo/select.html');">
+        		<div class="hui-list-icons"><img src="./img/index/select.png" /></div>
+        		<div class="hui-list-text">
+        			select 美化<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+            </a>
+            <a href="javascript:hui.open('./demo/range.html');">
+        		<div class="hui-list-icons"><img src="./img/index/range.png" /></div>
+        		<div class="hui-list-text">
+        			滑块<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+            </a>
+            <a href="javascript:hui.open('./demo/switch.html');">
+        		<div class="hui-list-icons"><img src="./img/index/switch.png" /></div>
+        		<div class="hui-list-text">
+        			switch 开关<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+            </a>
+            <a href="javascript:hui.open('./demo/start.html');">
+        		<div class="hui-list-icons"><img src="./img/index/start.png" /></div>
+        		<div class="hui-list-text">
+        			星级评分<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+            </a>
+            <a href="javascript:hui.open('./demo/numberbox.html');">
+        		<div class="hui-list-icons"><img src="./img/index/number.png" /></div>
+        		<div class="hui-list-text">
+        			数字输入框<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+            </a>
+		</div>
+	</div>
+	<div class="hui-accordion">
+		<div class="hui-accordion-title">选择（筛选）器</div>
+		<div class="hui-accordion-content hui-list">
+			<a href="javascript:hui.open('./demo/selecter.html');">
+        		<div class="hui-list-icons"><img src="./img/index/selecter.png" /></div>
+        		<div class="hui-list-text">
+        			元素选择<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+			</a>
+			<a href="javascript:hui.open('./demo/selecter2.html');">
+        		<div class="hui-list-icons"><img src="./img/index/shaixuan.png" /></div>
+        		<div class="hui-list-text">
+        			元素筛选<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+			</a>
+			<a href="javascript:hui.open('./demo/each.html');">
+        		<div class="hui-list-icons"><img src="./img/index/each.png" /></div>
+        		<div class="hui-list-text">
+        			元素遍历<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+			</a>
+			<a href="javascript:hui.open('./demo/getindex.html');">
+        		<div class="hui-list-icons"><img src="./img/index/index.png" /></div>
+        		<div class="hui-list-text">
+        			index 获取<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+			</a>
+		</div>
+	</div>
+	<div class="hui-accordion">
+		<div class="hui-accordion-title">DOM 操作</div>
+		<div class="hui-accordion-content hui-list">
+			<a href="javascript:hui.open('./demo/create.html');">
+        		<div class="hui-list-icons"><img src="./img/index/create.png" /></div>
+        		<div class="hui-list-text">
+        			创建添加元素<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+			</a>
+			<a href="javascript:hui.open('./demo/clone.html');">
+        		<div class="hui-list-icons"><img src="./img/index/clone.png" /></div>
+        		<div class="hui-list-text">
+        			克隆元素<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+			</a>
+			<a href="javascript:hui.open('./demo/deletedom.html');">
+        		<div class="hui-list-icons"><img src="./img/index/deletedom.png" /></div>
+        		<div class="hui-list-text">
+        			删除元素<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+			</a>
+			<a href="javascript:hui.open('./demo/css.html');">
+        		<div class="hui-list-icons"><img src="./img/index/css.png" /></div>
+        		<div class="hui-list-text">
+        			样式操作<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+			</a>
+			<a href="javascript:hui.open('./demo/value.html');">
+        		<div class="hui-list-icons"><img src="./img/index/value.png" /></div>
+        		<div class="hui-list-text">
+        			值操作<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+			</a>
+			<a href="javascript:hui.open('./demo/html.html');">
+        		<div class="hui-list-icons"><img src="./img/index/html.png" /></div>
+        		<div class="hui-list-text">
+        			HTML 内容操作<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+			</a>
+			<a href="javascript:hui.open('./demo/show.html');">
+        		<div class="hui-list-icons"><img src="./img/index/hide.png" /></div>
+        		<div class="hui-list-text">
+        			隐藏或展示元素<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+			</a>
+			<a href="javascript:hui.open('./demo/window.html');">
+        		<div class="hui-list-icons"><img src="./img/index/window.png" /></div>
+        		<div class="hui-list-text">
+        			窗口、偏移值、滚动条<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+			</a>
+		</div>
+	</div>
+	<div class="hui-accordion">
+		<div class="hui-accordion-title">AJAX</div>
+		<div class="hui-accordion-content hui-list">
+			<a href="javascript:hui.open('./demo/ajax.html');">
+        		<div class="hui-list-icons"><img src="./img/index/ajax.png" /></div>
+        		<div class="hui-list-text">
+        			AJAX 演示<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+			</a>
+		</div>
+	</div>
+	<div class="hui-accordion">
+		<div class="hui-accordion-title">事件相关</div>
+		<div class="hui-accordion-content hui-list">
+			<a href="javascript:hui.open('./demo/event.html');">
+        		<div class="hui-list-icons"><img src="./img/index/event.png" /></div>
+        		<div class="hui-list-text">
+        			常用事件<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+			</a>
+			<a href="javascript:hui.open('./demo/scrollevent.html');">
+        		<div class="hui-list-icons"><img src="./img/index/scroll.png" /></div>
+        		<div class="hui-list-text">
+        			滚动事件<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+			</a>
+			<a href="javascript:hui.open('./demo/on.html');">
+        		<div class="hui-list-icons"><img src="./img/index/on.png" /></div>
+        		<div class="hui-list-text">
+        			为动态元素绑定事件<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+			</a>
+			<a href="javascript:hui.open('./demo/swiper.html');">
+        		<div class="hui-list-icons"><img src="./img/index/swiper.png" /></div>
+        		<div class="hui-list-text">
+        			滑动事件<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+			</a>
+			<a href="javascript:hui.open('./demo/eventband.html');">
+        		<div class="hui-list-icons"><img src="./img/index/eventband.png" /></div>
+        		<div class="hui-list-text">
+        			事件绑定及触发<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+			</a>
+		</div>
+	</div>
+	<div class="hui-accordion">
+		<div class="hui-accordion-title">插件扩展</div>
+		<div class="hui-accordion-content hui-list">
+			<a href="javascript:hui.open('./demo/extend.html');">
+        		<div class="hui-list-icons"><img src="./img/index/extend.png" /></div>
+        		<div class="hui-list-text">
+        			插件扩展<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+			</a>
+		</div>
+	</div>
+	<div class="hui-accordion">
+		<div class="hui-accordion-title">H5+ 专用</div>
+		<div class="hui-accordion-content hui-list">
+			<a href="javascript:hui.open('./demo/h5window.html',{},true,{name:'hcoder', age:'3.0'});">
+        		<div class="hui-list-icons"><img src="./img/index/window.png" /></div>
+        		<div class="hui-list-text">
+        			打开、关闭窗口<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+        	</a>
+        	<a href="javascript:createWin();">
+        		<div class="hui-list-icons"><img src="./img/index/createw.png" /></div>
+        		<div class="hui-list-text">
+        			创建窗口<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+        	</a>
+        	<a href="javascript:hui.open('./demo/subpage.html');">
+        		<div class="hui-list-icons"><img src="./img/index/subpage.png" /></div>
+        		<div class="hui-list-text">
+        			子窗口及滑动切换<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+        	</a>
+        	<a href="javascript:hui.open('./demo/allviews.html',{}, true);">
+        		<div class="hui-list-icons"><img src="./img/index/views.png" /></div>
+        		<div class="hui-list-text">
+        			获取全部窗口<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+        	</a>
+		</div>
+	</div>
+	<div class="hui-accordion">
+		<div class="hui-accordion-title">界面库</div>
+		<div class="hui-accordion-content hui-list">
+			<a href="javascript:hui.open('./demo/imgnews.html');">
+        		<div class="hui-list-icons"><img src="./img/index/img2.png" /></div>
+        		<div class="hui-list-text">
+        			动态图文组合<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+        	</a>
+        	<a href="javascript:hui.open('./demo/indexlist.html');">
+        		<div class="hui-list-icons"><img src="./img/index/index2.png" /></div>
+        		<div class="hui-list-text">
+        			索引列表<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+        	</a>
+        	<a href="javascript:hui.open('./demo/indexaction.html',{},true);">
+        		<div class="hui-list-icons"><img src="./img/index/action.png" /></div>
+        		<div class="hui-list-text">
+        			APP启动动画<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+        	</a>
+        	<a href="javascript:hui.open('./demo/register.html',{},true);">
+        		<div class="hui-list-icons"><img src="./img/index/register.png" /></div>
+        		<div class="hui-list-text">
+        			用户注册<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+        	</a>
+        	<a href="javascript:hui.open('./demo/account.html',{},true);">
+        		<div class="hui-list-icons"><img src="./img/index/account.png" /></div>
+        		<div class="hui-list-text">
+        			用户中心<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+        	</a>
+        	<a href="javascript:hui.open('./demo/search.html',{},true);">
+        		<div class="hui-list-icons"><img src="./img/index/search.png" /></div>
+        		<div class="hui-list-text">
+        			搜索界面<div class="hui-list-info hui-icons hui-icons-right"></div>
+        		</div>
+        	</a>
+        </div>
+    </div>
+</div>
+<div class="hui-fooer-line"></div>
+<div id="hui-footer">
+    <a href="javascript:hui.toast('首页');" id="nav-home">
+        <div class="hui-footer-icons hui-icons-home"></div>
+        <div class="hui-footer-text">首页</div>
+    </a>
+    <a href="javascript:hui.toast('新闻');" id="nav-news">
+        <div class="hui-footer-icons hui-icons-news"></div>
+        <div class="hui-footer-text">新闻</div>
+    </a>
+    <div style="width:20%; text-align:center;">
+        &nbsp;
+    </div>
+    <a href="javascript:hui.toast('社区');" id="nav-forum">
+        <div class="hui-footer-icons hui-icons-forum"></div>
+        <div class="hui-footer-text">社区</div>
+    </a>
+    <a href="javascript:hui.toast('我的');" id="nav-my">
+        <div class="hui-footer-icons hui-icons-my"></div>
+        <div class="hui-footer-text">我的</div>
+    </a>
+</div>
+<div id="footer-logo">
+	<img src="img/footer-logo2.png" />
+</div>
+<script src="js/hui.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="js/hui-accordion.js"></script>
+<script type="text/javascript">
+hui.ready(function(){
+    hui.accordion(true, true);
+	hui('#nav-my').pointMsg();
+	hui('#nav-news').pointMsg('hot', null, null, null, '1px');
+	hui('#nav-forum').pointMsg(8);
+});
+</script>
+</body>
+</html>

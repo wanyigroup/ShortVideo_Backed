@@ -1,0 +1,68 @@
+<div class="panel panel-default panel-intro">
+    
+    <div class="panel-heading">
+        {:build_heading(null,FALSE)}
+        <ul class="nav nav-tabs" data-field="status">
+            <li class="active"><a href="#t-all" data-value="" data-toggle="tab">{:__('All')}</a></li>
+            {foreach name="statusList" item="vo"}
+            <li><a href="#t-{$key}" data-value="{$key}" data-toggle="tab">{$vo}</a></li>
+            {/foreach}
+        </ul>
+    </div>
+
+
+    <div class="panel-body">
+        <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade active in" id="one">
+                <div class="widget-body no-padding">
+                    <div id="toolbar" class="toolbar">
+                        <a href="javascript:;" class="btn btn-primary btn-refresh" title="{:__('Refresh')}" ><i class="fa fa-refresh"></i> </a>
+                        <a href="javascript:;" class="btn btn-success btn-add {:$auth->check('paycard/add')?'':'hide'}" title="{:__('Add')}" ><i class="fa fa-plus"></i> {:__('Add')}</a>
+                        <a href="javascript:;" class="btn btn-success btn-edit btn-disabled disabled {:$auth->check('paycard/edit')?'':'hide'}" title="{:__('Edit')}" ><i class="fa fa-pencil"></i> {:__('Edit')}</a>
+                        <a href="javascript:;" class="btn btn-danger btn-del btn-disabled disabled {:$auth->check('paycard/del')?'':'hide'}" title="{:__('Delete')}" ><i class="fa fa-trash"></i> {:__('Delete')}</a>
+                        <a href="javascript:;" class="btn btn-danger btn-import {:$auth->check('paycard/import')?'':'hide'}" title="{:__('Import')}" id="btn-import-file" data-url="ajax/upload" data-mimetype="csv,xls,xlsx" data-multiple="false"><i class="fa fa-upload"></i> {:__('Import')}</a>
+
+                        <div class="dropdown btn-group {:$auth->check('paycard/multi')?'':'hide'}">
+                            <a class="btn btn-primary btn-more dropdown-toggle btn-disabled disabled" data-toggle="dropdown"><i class="fa fa-cog"></i> {:__('More')}</a>
+                            <ul class="dropdown-menu text-left" role="menu">
+                                <li><a class="btn btn-link btn-multi btn-disabled disabled" href="javascript:;" data-params="status=normal"><i class="fa fa-eye"></i> {:__('Set to normal')}</a></li>
+                                <li><a class="btn btn-link btn-multi btn-disabled disabled" href="javascript:;" data-params="status=hidden"><i class="fa fa-eye-slash"></i> {:__('Set to hidden')}</a></li>
+                            </ul>
+                        </div>
+
+                        <a class="btn btn-success btn-recyclebin btn-dialog {:$auth->check('paycard/recyclebin')?'':'hide'}" href="paycard/recyclebin" title="{:__('Recycle bin')}"><i class="fa fa-recycle"></i> {:__('Recycle bin')}</a>
+                    </div>
+                    <table id="table" class="table table-striped table-bordered table-hover table-nowrap"
+                           data-operate-edit="{:$auth->check('paycard/edit')}" 
+                           data-operate-del="{:$auth->check('paycard/del')}" 
+                           width="100%">
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="panel-footer">
+        <span class="pull-right">帮助信息</span>
+
+        <div class="alert alert-primary" role="alert">
+            <dl>
+              <dt>卡密添加</dt>
+              <dd>点击添加,选择金额,和数量, 即可生成兑换码</dd>
+              <dt>卡密导出</dt>
+              <dd>
+                  <ul class="list-unstyled">
+                        <li>第一步, 点击 右上角的 <i class="glyphicon glyphicon-search"></i> 查询出指定的金额,日期生成的卡密</li>
+                        <li>第二步, 点击 右上角的 <i class="glyphicon glyphicon-th icon-th"></i> 去掉其他勾选,仅保留勾选卡号/密码(如果存在的话)</li>
+                        <li>第三步, 选择显示ALL, 在全选, 在点击右上角的 <i class="glyphicon glyphicon-export icon-share"></i>  最后导出格式 例如txt, 会下载一个文本文件,里面就是指定格式的卡密</li>
+                  </ul>
+              </dd>
+            </dl>
+            <a href="#" class="alert-link">图文使用教程!</a>
+        </div>
+    </div>
+
+
+
+</div>

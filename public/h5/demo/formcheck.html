@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>HUI Form</title>
+<link rel="stylesheet" type="text/css" href="../css/hui.css" />
+</head>
+<body style="background:#FCFCFC;">
+<header class="hui-header">
+    <div id="hui-back"></div>
+    <h1>HUI 表单验证</h1>
+</header>
+<div class="hui-wrap">
+    <form style="padding:28px 10px;" class="hui-form" id="form1">
+        <div class="hui-form-items">
+        	<div class="hui-form-items-title">您的称呼</div>
+            <input type="text" class="hui-input hui-input-clear" name="nickname" value="张三" checkType="string" checkData="2,10" checkMsg="称呼应为2-10个字符" />
+        </div>
+        <div class="hui-form-items">
+        	<div class="hui-form-items-title">手机号码</div>
+            <input type="number" class="hui-input" placeholder="如：1889088..." name="phonenum" checkType="phone" value="18998899888" checkMsg="手机号码格式错误" />
+        </div>
+        <div class="hui-form-items">
+        	<div class="hui-form-items-title">登录密码</div>
+            <input type="password" class="hui-input hui-pwd-eye" placeholder="登录密码" checkType="string" id="pwd" checkData="6,20" value="888888" checkMsg="密码应为6-20个字符" />
+        </div>
+        <div class="hui-form-items">
+        	<div class="hui-form-items-title">登录密码</div>
+            <input type="password" class="hui-input hui-pwd-eye" placeholder="确认密码" checkType="sameWithId" checkData="pwd" value="888888" checkMsg="两次密码不一致"  />
+        </div>
+        <div class="hui-form-items">
+            <div class="hui-form-items-title">爱好</div>
+            <div class="hui-form-radios" id="loves">
+                <input type="checkbox" value="1" name="aihao[]" id="c1" /><label for="c1">读书</label>
+                <input type="checkbox" value="2" name="aihao[]" id="c2" /><label for="c2">写字</label>
+            </div>
+        </div>
+        <div class="hui-form-items">
+            <div class="hui-form-items-title">验证码</div>
+            <input type="number" class="hui-input" name="yzm" value="1828" checkType="reg" checkData="^\d{4,4}$" checkMsg="验证码应该为4个数字" />
+            <div style="width:100px;">
+            	<img src="../img/yzm.png" width="100%" />
+            </div>
+        </div>
+        <div class="hui-form-items">
+            <div class="hui-form-items-title">年份</div>
+            <div class="hui-form-select">
+                <select name="year" checkType="notSame" checkData="0" checkMsg="请选择年份">
+                	<option value="0">请选择</option>
+                    <option value="2010">2010</option>
+                    <option value="2011">2011</option>
+                    <option value="2012">2012</option>
+                    <option value="2013">2013</option>
+                    <option value="2014">2014</option>
+                    <option value="2015">2015</option>
+                </select>
+            </div>
+        </div>
+        <div class="hui-form-items">
+            <div class="hui-form-items-title">备注</div>
+            <div class="hui-form-textarea">
+                <textarea placeholder="备注..." name="note"></textarea>
+            </div>
+        </div>
+        <div style="padding:15px 8px;">
+            <button type="button" class="hui-button hui-primary hui-fr" id="submitBtn">提交数据</button>
+        </div>
+    </form>
+</div>
+<script type="text/javascript" src="../js/hui.js"></script>
+<script type="text/javascript" src="../js/hui-form.js"></script>
+<script type="text/javascript">
+hui.formInit();
+//表单验证
+var loves;
+hui('#submitBtn').click(function(){
+    var res = huiFormCheck('#form1');
+    //提交
+    if(res){
+    	hui.iconToast('验证通过！');
+    	var data = hui.getFormData('#form1');
+    	data.loves = loves;
+    	console.log(JSON.stringify(data));
+    }
+});
+//附加验证函数用于单选多选等特殊检查项目
+function huiFormCheckAttach(){
+	loves = new Array();
+    hui('#loves').find('input').each(function(cObj){
+        if(cObj.checked){loves.push(cObj.value);}
+    });
+    if(loves.length < 1){hui.toast('请至少选择一个爱好'); return false;}
+    return true;
+}
+</script>
+</body>
+</html>

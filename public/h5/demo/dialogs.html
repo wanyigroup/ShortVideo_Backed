@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>HUI - 对话框组件</title>
+<link rel="stylesheet" type="text/css" href="../css/hui.css" />
+</head>
+<body>
+<header class="hui-header">
+    <div id="hui-back"></div>
+    <h1>HUI - 对话框组件</h1>
+</header>
+<div class="hui-wrap">
+	<div class="hui-common-title" style="margin-top:15px;">
+		<div class="hui-common-title-line"></div>
+		<div class="hui-common-title-txt">通用对话框</div>
+		<div class="hui-common-title-line"></div>
+	</div>
+	<div style="padding:28px 50px;">
+        <button type="button" class="hui-button hui-button-large" id="btn1">打开警告提示框</button>
+        <button type="button" class="hui-button hui-button-large" id="btn2" style="margin-top:15px;">打开确认提示框</button>
+        <button type="button" class="hui-button hui-button-large" id="btn3" style="margin-top:15px;">打开输入提示框</button>
+   </div>
+</div>
+<script src="../js/hui.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+hui('#btn1').click(function(){hui.alert('警告信息！','好的', function(){console.log('ok');});});
+hui('#btn2').click(function(){
+    hui.confirm('您确认要这样做吗？', ['取消','确定'], function(){
+        console.log('确认后执行...');
+    },function(){
+        console.log('取消后执行...');
+    });
+});
+hui('#btn3').click(function(){
+    hui.prompt('请输入您的称呼？', ['取消','确定'], function(name){
+        console.log('您输入了 :' + name);
+    }, '例如 : 张三', '张三',function(){console.log('您点击了取消')});
+});
+</script>
+</body>
+</html>

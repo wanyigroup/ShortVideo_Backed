@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>账户升级</title>
+<link rel="stylesheet" type="text/css" href="http://apiv1.afuny.com/h5/css/hui.css" />
+<style type="text/css">
+.divbox{height:80px; text-align:center; color:#FFF; line-height:80px; font-size:22px; margin:5px; background:#3388FF;}
+</style>
+</head>
+<body style="background:#F4F5F6;">
+<!--
+<header class="hui-header">
+    <div id="hui-back"></div><h1>账户升级</h1>
+</header>
+-->
+<div class="hui-wrap">
+
+<div class="hui-center-title" style="margin-top:10px;">
+    <h1 style="border:0px;">账户升级</h1>
+</div>
+
+<form style="padding:28px 10px;" class="hui-form" id="form1">
+<div style="margin:10px 10px; margin-bottom:10px;" class="hui-form" id="form0">
+
+<!--
+<div class="hui-img-list">
+    <ul>
+        <li>
+            <a href="javascript:hui.toast('hi...');">
+                <img src="/h5/img/img_banner.png" />
+            </a>
+        </li>
+    </ul>
+</div>
+-->
+
+<div class="hui-form-items">
+    <div class="hui-form-items-title">充值金额</div>
+    <div class="hui-form-select">
+        <select name="">
+        <option value="2012">100元</option>
+        <option value="2013">200元</option>
+        </select>
+    </div>
+</div>
+
+<div class="hui-form-items">
+    <div class="hui-form-items-title">支付方式</div>
+    <div class="hui-form-radios" style="line-height:38px;">
+        <input type="radio" value="1" name="gender" id="g1" checked="checked" /><label for="g1">支付宝</label><br />
+        <input type="radio" value="2" name="gender" id="g2" /><label for="g2">微信</label>
+    </div>
+</div>
+
+<div class="hui-form-items">
+    <div class="hui-form-items-title">充值账户</div>
+    <input type="text" class="hui-input hui-input-clear" name="nickname" placeholder="如：testuser" />
+</div>
+
+<div style="padding:10px; padding-top:10px;">
+    <button type="button" class="hui-button hui-button-large hui-primary" id="submit">立刻购买</button>
+</div>
+
+<div style="padding:20px; border-radius:8px; background:#FFFFFF; margin-top:10px; margin-bottom: 30px;">
+    <div style="text-align:center; line-height:28px; font-weight:700; padding-bottom:12px; font-size:16px;">有效期倒计时</div>
+    <div id="countdown4"></div>
+</div>
+
+</div>
+</form>
+</div>
+
+<div id="hui-footer">
+    <a href="javascript:hui.toast('首页');" id="nav-home">
+        <div class="hui-footer-icons hui-icons-home"></div>
+        <div class="hui-footer-text">首页</div>
+    </a>
+    <a href="javascript:hui.toast('新闻');" id="nav-news">
+        <div class="hui-footer-icons hui-icons-news"></div>
+        <div class="hui-footer-text">新闻</div>
+    </a>
+    <div style="width:20%; text-align:center;" class="hui-fl">
+        <img src="/h5/img/applogo.png" height="44" />
+    </div>
+    <a href="javascript:hui.toast('社区');" id="nav-forum">
+        <div class="hui-footer-icons hui-icons-forum"></div>
+        <div class="hui-footer-text">社区</div>
+    </a>
+    <a href="javascript:hui.toast('我的');" id="nav-my">
+        <div class="hui-footer-icons hui-icons-my"></div>
+        <div class="hui-footer-text">我的</div>
+    </a>
+</div>
+
+<script src="http://apiv1.afuny.com/h5/js/hui.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="http://apiv1.afuny.com/h5/js/hui-form.js" charset="utf-8"></script>
+<script type="text/javascript">
+/*
+ * hui.countdown()函数说明：
+ * 参数1: 时间的标准格式 2018-09-01 12:50:10 [严格遵守系统会进行校验]
+ * 参数2: domId
+ * 参数3: 展示类型
+ *       1. xx天xx时xx分xx秒
+ *          2. xx时xx分xx秒
+ *       3. xx:xx:xx
+ *       4. xx:xx [xx分:xx秒]
+ */
+var dater = new Date();
+var timer = (dater.getFullYear()+1) + '-01-01 12:00:00';
+hui.countdown(timer,'#countdown4', 4);
+</script>
+<script type="text/javascript">
+hui('#submit').click(function(){
+    //验证
+    //var res = huiFormCheck('#form1');
+    //提交
+    var data = hui.getFormData('#form1');
+        //data.loves = loves;
+        console.log(JSON.stringify(data));
+
+    hui.post(
+        'http://apiv1.afuny.com/mobile/user/upgrade',
+        {name:'hcoder', age:18},
+        function(msg){
+            console.log(msg);
+            hui.upToast(msg);
+        },
+        function(e){
+            hui.iconToast('读取消息失败', 'warn');
+        }
+    );
+
+    //if(res){hui.iconToast('验证通过！');}
+});
+</script>
+</body>
+</html>

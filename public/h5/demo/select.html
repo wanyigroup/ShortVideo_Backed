@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>HUI </title>
+<link rel="stylesheet" type="text/css" href="../css/hui.css" />
+</head>
+<body>
+<header class="hui-header">
+    <div id="hui-back"></div>
+    <h1>HUI Select 美化</h1>
+</header>
+<div class="hui-wrap" style="padding-top:100px;">
+    <div class="hui-center-title" style="margin-top:15px;"><h1>演示样例</h1></div>
+</div>
+<div style="height:50px; width:100%; background:#FFF;">
+    <div style="width:50%; height:50px; line-height:50px; text-align:center; float:left;">
+        <select id="select1">
+            <option value="1">价格最低</option>
+            <option value="2">价格最高</option>
+            <option value="3" selected="selected">综合排序</option>
+            <option value="4">推荐排序</option>
+        </select>
+    </div>
+    <div style="width:50%; height:50px; line-height:50px; text-align:center; float:left;">
+        <select id="select2">
+            <option value="1">陕西省</option>
+            <option value="2">河北省</option>
+            <option value="3">北京市</option>
+            <option value="4">河南省</option>
+        </select>
+    </div>
+</div>
+<div style="padding:15px 28px; margin-top:38px;" class="hui-text">
+    <button type="button" class="hui-button" id="btn1" style="margin:0 auto;">获取选项值</button>
+</div>
+<script type="text/javascript" src="../js/hui.js" charset="utf-8"></script>
+<script src="../js/hui-select-beautify.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+hui('#select1').selectBeautify(showVal);
+hui('#select2').selectBeautify(showVal);
+function showVal(val){
+    hui.toast('选项值 : ' + val);
+}
+hui('#btn1').click(function(){
+    var select1 = hui('#select1').val();
+    var select2 = hui('#select2').val();
+    hui.toast(select1 + ',' + select2);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>Voucher</title>
+<link rel="stylesheet" type="text/css" href="/h5/css/hui.css" />
+</head>
+<body style="background:#F4F5F6;">
+<div class="hui-wrap">
+    <div class="hui-center-title" style="margin-top:35px;"><h1 style="border:0px;">会员兑换</h1></div>
+    <div style="margin:20px 10px; margin-bottom:15px;" class="hui-form" id="form1">
+        <input type="hidden" name="__token__" value="{:token()}" />
+        <input type="hidden" name="uid" value="{$uid}">
+        <div class="hui-form-items">
+            <div class="hui-form-items-title">卡号</div>
+            <input type="text" class="hui-input hui-input-clear" name="cardnum" placeholder="请输入您的卡号" />
+        </div>
+        <div style="padding:100px; padding-top:22px;">
+            <button type="button" class="hui-button hui-button-large hui-primary" id="btn2">确认兑换</button>
+        </div>
+        <div class="hui-content" style="padding:10px;">
+            <h2>兑换说明</h2>
+            <p>兑换成功不可撤销!</p>
+        </div>
+    </div>
+</div>
+
+<script src="/h5/js/hui.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="/h5/js/hui-form.js" charset="utf-8"></script>
+<script type="text/javascript">
+    hui('#btn2').click(function(){
+        hui.ajax({
+            url  : '/api/voucher',
+            type : 'POST',
+            data : hui.getFormData('#form1'),
+            beforeSend : function(){hui.loading();},
+            complete   : function(){hui.closeLoading();},
+            success : function(res){
+                //console.log(res);
+                hui.toast(res.msg);
+            },
+            error : function(e){
+                //console.log(JSON.stringify(e));
+                //hui.iconToast('读取消息失败', 'warn');
+            },
+            'backType' : "JSON"
+        });
+    });
+</script>
+</body>
+</html>

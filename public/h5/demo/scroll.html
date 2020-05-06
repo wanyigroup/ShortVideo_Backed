@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>HUI </title>
+<link rel="stylesheet" type="text/css" href="../css/hui.css" />
+</head>
+<body>
+<header class="hui-header">
+    <div id="hui-back"></div>
+    <h1>HUI 滚动区域</h1>
+</header>
+<div class="hui-wrap">
+    <div class="hui-center-title" style="margin-top:15px;"><h1>图片横向滚动</h1></div>
+    <div style="margin:10px; margin-top:20px;" id="demo1">
+        <div>
+            <img src="../img/imglist/1.jpg"/>
+            <img src="../img/imglist/2.jpg"/>
+            <img src="../img/imglist/3.jpg"/>
+            <img src="../img/imglist/4.jpg"/>
+        </div>
+    </div>
+    <div class="hui-center-title" style="margin-top:15px;"><h1>DIV横向滚动</h1></div>
+    <div style="margin:10px; margin-top:20px;" id="demo3">
+        <div>
+            <div class="demo2">1</div>
+            <div class="demo2" style="background:#F5C500;">2</div>
+            <div class="demo2" style="background:#48A935;">3</div>
+            <div class="demo2" style="background:#202778;">4</div>
+            <div class="demo2" style="background:#ED2D22;">5</div>
+        </div>
+    </div>
+    <div class="hui-center-title" style="margin-top:35px;"><h1>竖向滚动</h1></div>
+    <div style="margin:10px; margin-top:20px;" id="demo2">
+        <div>
+            <div class="demo2">1</div>
+            <div class="demo2" style="background:#F5C500;">2</div>
+            <div class="demo2" style="background:#48A935;">3</div>
+            <div class="demo2" style="background:#202778;">4</div>
+            <div class="demo2" style="background:#ED2D22;">5</div>
+        </div>
+    </div>
+</div>
+<style type="text/css">
+#demo1{font-size:0px;}
+#demo1 img{margin:0px 3px;}
+.demo2{width:100%; height:100px; text-align:center; font-size:32px; margin:3px 0px; background:#26A2FF; color:#FFFFFF; line-height:100px;}
+</style>
+<script type="text/javascript" src="../js/hui.js"></script>
+<script type="text/javascript">
+hui('#demo1').scrollX(2, 'img', -6);
+hui('#demo2').scrollY(206);
+hui('#demo3').scrollX(2, '.demo2');
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>HUI</title>
+<link rel="stylesheet" type="text/css" href="../css/hui.css" />
+</head>
+<body>
+<header class="hui-header">
+    <div id="hui-back"></div>
+    <h1>HUI 创建追加元素</h1>
+</header>
+<div class="hui-wrap">
+	<div class="hui-common-title" style="margin-top:15px;">
+		<div class="hui-common-title-line"></div>
+		<div class="hui-common-title-txt">向后追加元素</div>
+		<div class="hui-common-title-line"></div>
+	</div>
+	<div id="demo1" style="padding:22px;">
+		<div class="test">原本的 div</div>
+	</div>
+	<div style="padding:1px 22px;">
+		<button type="button" class="hui-button hui-button-large">点击按钮追加元素</button>
+	</div>
+	<div class="hui-common-title" style="margin-top:15px;">
+		<div class="hui-common-title-line"></div>
+		<div class="hui-common-title-txt">向前追加元素</div>
+		<div class="hui-common-title-line"></div>
+	</div>
+	<div id="demo2" style="padding:22px;">
+		<div class="test">原本的 div</div>
+	</div>
+	<div style="padding:1px 22px;">
+		<button type="button" class="hui-button hui-button-large">点击按钮追加元素</button>
+	</div>
+</div>
+<style type="text/css">
+.test{line-height:50px;}
+</style>
+<script src="../js/hui.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+hui('button').eq(0).click(function(){
+	var divnew = hui.createDom('div');
+	divnew.setAttribute('class','test');
+	divnew.innerHTML = 'hi...';
+	hui(divnew).appendTo('#demo1');
+});
+hui('button').eq(1).click(function(){
+	var divnew = hui.createDom('div');
+	divnew.setAttribute('class','test');
+	divnew.innerHTML = 'hi...';
+	hui(divnew).prependTo('#demo2');
+});
+</script>
+</body>
+</html>

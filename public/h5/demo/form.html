@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>HUI Form</title>
+<link rel="stylesheet" type="text/css" href="../css/hui.css" />
+</head>
+<body style="background:#FCFCFC;">
+<header class="hui-header">
+    <div id="hui-back"></div>
+    <h1>HUI 表单元素布局</h1>
+</header>
+<div class="hui-wrap">
+    <form style="padding:28px 10px;" class="hui-form" id="form1">
+        <div class="hui-form-items">
+        	<div class="hui-form-items-title">您的称呼</div>
+            <input type="text" class="hui-input hui-input-clear" name="nickname" placeholder="如：张三" />
+        </div>
+        <div class="hui-form-items">
+        	<div class="hui-form-items-title">手机号码</div>
+            <input type="number" class="hui-input" placeholder="如：1889088..." name="phonenum" />
+        </div>
+        <div class="hui-form-items">
+        	<div class="hui-form-items-title">登录密码</div>
+            <input type="password" name="pwd" class="hui-input hui-pwd-eye" placeholder="登录密码" />
+        </div>
+        <div class="hui-form-items">
+            <div class="hui-form-items-title">爱好</div>
+            <div class="hui-form-radios">
+                <input type="checkbox" value="1" name="aihao[]" id="c1" onchange="showCheckRes(this);" /><label for="c1">读书</label>
+                <input type="checkbox" value="2" name="aihao[]" id="c2" onchange="showCheckRes(this);" /><label for="c2">写字</label>
+            </div>
+        </div>
+        <div class="hui-form-items">
+            <div class="hui-form-items-title">性别</div>
+            <div class="hui-form-radios" style="line-height:38px;">
+                <input type="radio" value="1" name="gender" id="g1" checked="checked" onchange="showSelectRes(this);" /><label for="g1">女生</label><br />
+                <input type="radio" value="2" name="gender" id="g2" onchange="showSelectRes(this);" /><label for="g2">男生</label>
+            </div>
+        </div>
+        <div class="hui-form-items">
+            <div class="hui-form-items-title">验证码</div>
+            <input type="number" class="hui-input" name="phonenum" />
+            <div style="width:100px;">
+            	<img src="../img/yzm.png" width="100%" />
+            </div>
+        </div>
+        <div class="hui-form-items">
+            <div class="hui-form-items-title">年份</div>
+            <div class="hui-form-select">
+                <select name="year">
+                    <option value="2010">2010</option>
+                    <option value="2011">2011</option>
+                    <option value="2012">2012</option>
+                    <option value="2013">2013</option>
+                    <option value="2014">2014</option>
+                    <option value="2015">2015</option>
+                </select>
+            </div>
+        </div>
+        <div class="hui-form-items">
+            <div class="hui-form-items-title">备注</div>
+            <div class="hui-form-textarea">
+                <textarea placeholder="备注..." name="note"></textarea>
+            </div>
+        </div>
+        <div style="padding:15px 8px;">
+            <button type="button" class="hui-button hui-primary hui-fr" id="submitBtn">提交数据</button>
+        </div>
+    </form>
+</div>
+<script type="text/javascript" src="../js/hui.js"></script>
+<script type="text/javascript" src="../js/hui-form.js"></script>
+<script type="text/javascript">
+hui.formInit();
+//表单元素数据收集演示
+hui('#submitBtn').click(function(){
+	hui.alert('请观察控制台');
+    var data = hui.getFormData('#form1');
+    console.log(JSON.stringify(data));
+});
+//获取复选框的值
+function showCheckRes(_selfBtn){
+    var vals = new Array();
+    hui(_selfBtn).parent().find('input').each(function(cObj){
+        if(cObj.checked){
+            vals.push(cObj.value);
+        }
+    });
+    console.log(vals);
+}
+//获取单选框的值
+function showSelectRes(_selfBtn){
+    var val;
+    hui(_selfBtn).parent().find('input').each(function(cObj){
+        if(cObj.checked){val = cObj.value;}
+    });
+    console.log(val);
+}
+</script>
+</body>
+</html>

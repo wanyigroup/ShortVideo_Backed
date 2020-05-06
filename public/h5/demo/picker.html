@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>HUI Picker</title>
+<link rel="stylesheet" type="text/css" href="../css/hui.css" />
+</head>
+<body>
+<header class="hui-header">
+    <div id="hui-back"></div>
+    <h1>HUI Picker</h1>
+</header>
+<div class="hui-wrap">
+    <div class="hui-center-title" style="margin-top:15px;"><h1>演示样例</h1></div>
+    <div style="padding:28px;">
+        <button type="button" class="hui-button hui-button-large" id="btn1">选择性别</button>
+        <button type="button" class="hui-button hui-button-large" id="btn2" style="margin-top:20px;">选择班级</button>
+        <button type="button" class="hui-button hui-button-large" id="btn3" style="margin-top:20px;">选择地区</button>
+    </div>
+</div>
+<script type="text/javascript" src="../js/hui.js" charset="utf-8"></script>
+<script type="text/javascript" src="../js/hui-picker.js" charset="utf-8"></script>
+<script type="text/javascript" src="../js/cities.js" charset="utf-8"></script>
+<script type="text/javascript">
+/* 示例 1 : 普通选择器 非关联型绑定 */
+	var picker1 = new huiPicker('#btn1', function(){
+	    var val = picker1.getVal(0);
+	    var txt = picker1.getText(0);
+	    hui('#btn1').html(txt + '[' + val + ']');
+	});
+	// 同级 picker 数量设置 默认 1
+	picker1.level    = 1;
+	//1. piker 数据
+	var pickerData   = [{value:1, text:'男'},{value:2, text:'女'}];
+	//2. 查询默认值 例如  {value:2, text:'女'} 的默认值为 2
+	//不设置默认值此步骤省略即可
+	var defaultValue  = 2;
+	var defaultIndex  = pickerData.pickerIndexOf(defaultValue);
+	//3 绑定数据时设置默认值 //不设置默认值 忽略第三个参数即可
+	picker1.bindData(0, pickerData, defaultIndex);
+
+/* 示例 2 : 普通选择器2列 非关联型绑定 */
+	var picker2 = new huiPicker('#btn2', function(){
+	    var val1 = picker2.getVal(0);
+	    var txt1 = picker2.getText(0);
+	    var val2 = picker2.getVal(1);
+	    var txt2 = picker2.getText(1);
+	    hui('#btn2').html(txt1 + txt2);
+	});
+	// 同级 picker 数量 2
+	picker2.level    = 2;
+	//1. piker 数据
+	var pickerData2_1   = [{value:"一年级", text:'一年级'},{value:'二年级', text:'二年级'},{value:'三年级', text:'三年级'}];
+	var pickerData2_2   = [{value:"一班", text:'一班'},{value:'二班', text:'二班'},{value:'三班', text:'三班'}];
+	//2. 查询默认值 二年级
+	var defaultValue1  = "二年级";
+	var defaultIndex1  = pickerData2_1.pickerIndexOf(defaultValue1);
+	var defaultValue2  = "三班";
+	var defaultIndex2  = pickerData2_2.pickerIndexOf(defaultValue2);
+	//3 绑定数据时设置默认值
+	picker2.bindData(0, pickerData2_1, defaultIndex1);//绑定年级
+	picker2.bindData(1, pickerData2_2, defaultIndex2);//绑定班级
+
+/* 地区选择， 关联型数据 */
+	var picker3 = new huiPicker('#btn3', function(){
+	    var sheng   = picker3.getText(0);
+	    var shi     = picker3.getText(1);
+	    var qu      = picker3.getText(2);
+	    var shengVal= picker3.getVal(0);
+	    var shiVal  = picker3.getVal(1);
+	    var quVal   = picker3.getVal(2);
+	    console.log(shengVal, shiVal, quVal);
+	    hui('#btn3').html(sheng + shi + qu);
+	});
+	picker3.level = 3;
+	//cities 数据来源于 cities.js
+	// 默认值设置方式 [330000 330400 330424] 浙江省 嘉兴市 海盐区
+	var defaultVal = [330000, 330400, 330424];
+	// 不设置默认值忽略第三个参数即可
+	picker3.bindRelevanceData(cities, defaultVal);
+</script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+
+VERSION 3  ALWAYS USE IPDB FORMAT
+=================================
+
+   Version 3.0 - always use IPDB format
+      10/07/2019 10:19  3.0.1  Update ipipfreedb_20190703
+         cb9f2c6 Update ipipfreedb_20190703
+         3d7ea20 Split out IpLocation::addIpdbMissingFields()
+         c9ca93f Fix phpdoc typos
+      10/07/2019 04:25  3.0.0  initial release
+         21eabc1 Always use IPDB format database
+         1988e63 Update deps
+         31c0dd1 nits
+         9649855 Fix a phan error
+         335c4f2 Add .gitattributes
+         4d1d077 $ composer fix
+         f95e70a Update deps
+         7d10761 Update .travis.yml for 7.4snapshot
+         40b3dd2 Add .editorconfig
+         adf0b28 Update deps
+         632617a nits
+         2f5ef30 Update readme
+
+VERSION 2  UPDATE IPIP DB FORMAT
+================================
+
+   Version 2.1 - add flag for returning associative array
+      09/02/2019 16:24  2.1.0  initial release
+         8e1b860 Add tests
+         bcde873 Add a flag for return an associative array
+
+   Version 2.0 - update ipip db format
+      09/02/2019 14:41  2.0.1  nits
+         33735b2 nits
+      09/02/2019 14:22  2.0.0  initial release
+         c53f7b1 Update ipip database format
+         359e33d Update db
+         1a47576 Update deps
+         9e20e3f year++
+         b6db1bc Update readme and demo.php
+
+VERSION 1  INIT
+===============
+
+   Version 1.1 - Add db into package
+      28/11/2018 07:45  1.1.0  initial release
+         9f6d5a5 Update deps
+         12f9534 Add db into repo
+         671503a Update README
+         490dbad Update deps
+         adcf106 Add license
+
+   Version 1.0 - init
+      04/09/2018 18:57  1.0.5  php-cs-fixer
+         ec6713b php-cs-fixer: enable native_constant_invocation and native_function_invocation
+         e7bbf24 Update deps
+         93c951b Rename CHANGELOG.md -> CHANGELOG
+         b34f2e7 Update deps
+      18/07/2018 08:48  1.0.4  Add composer.lock
+         5db7d6b Add composer.lock
+      04/07/2018 15:33  1.0.3  nits
+         f586f89 Update .rmt.yml
+      04/07/2018 15:18  1.0.2  initial release

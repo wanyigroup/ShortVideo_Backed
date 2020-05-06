@@ -1,0 +1,55 @@
+{
+    "name": "0377/fastadmin-tp6",
+    "description": "the fastest admin framework",
+    "type": "project",
+    "keywords": [
+        "thinkphp6",
+        "thinkphp",
+        "fastadmin"
+    ],
+    "homepage": "https://www.iuok.cn",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "ice",
+            "email": "ice@sbing.vip"
+        }
+    ],
+    "require": {
+        "php": ">=7.1.0",
+        "topthink/framework": "^6.0",
+        "topthink/think-orm": "^2.0",
+        "topthink/think-view": "^1.0",
+        "topthink/think-captcha": "^3.0",
+        "overtrue/pinyin": "^4.0",
+        "mtdowling/cron-expression": "^1.2",
+        "topthink/think-multi-app": "^1.0",
+        "overtrue/wechat": "~3.1",
+        "endroid/qr-code": "^1.9",
+        "phpmailer/phpmailer": "^5.2",
+        "phpoffice/phpspreadsheet": "^1.2",
+        "jfcherng/php-ip-location": "^3.0",
+        "geoip2/geoip2": "^2.10"
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^4.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "app\\": "app",
+            "addons\\": "addons"
+        },
+        "psr-0": {
+            "": "extend/"
+        }
+    },
+    "config": {
+        "preferred-install": "dist"
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "@php think service:discover",
+            "@php think vendor:publish"
+        ]
+    }
+}

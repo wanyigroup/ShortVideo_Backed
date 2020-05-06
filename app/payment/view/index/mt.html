@@ -1,0 +1,84 @@
+
+
+   <script>
+        if(device.mobile()){
+            $('#open-win').hide();
+        } else{
+            $('#open-app').hide();
+        }
+    </script>
+<script>
+
+    function Pay_time(nvalid_at){
+        var now=new Date();
+        var end=new Date(nvalid_at.replace(/-/g, "/")).getTime();
+        var result=Math.floor(end-now)/1000;
+        var Pay_time_interval=setInterval(Pay_time_go,1000);
+        function Pay_time_go(){
+            if (result>1) {
+                result = result - 1;
+                var second = Math.floor(result % 60);
+                var minite = Math.floor((result / 60) % 60);
+                $("#timer").html("鍓╀綑鏀粯鏃堕棿锛�"+minite + "鍒�" + second + "绉�");
+            } else{
+                clearInterval(Pay_time_interval);
+                $("#timer").html("姝ｅ湪妫€鏌ユ敮浠樼姸鎬�...");
+                $('#time_out_clear').hide();
+
+            }
+        };
+    };
+
+    function Error_reload() {
+        $('#reload-Modal').modal({backdrop: 'static', keyboard: false})
+        var verify_id = setInterval(web_reload,5000);
+        function web_reload(){
+            clearInterval(verify_id);
+            window.location.reload()
+        };
+    }
+    function Weixn_userAgent_go() {
+        var winHeight = $(window).height();
+        function is_weixn_qq() {
+            var ua = navigator.userAgent.toLowerCase();
+            if (ua.match(/MicroMessenger/i) == "micromessenger") {
+                return true;
+            }
+            return false;
+        }
+        var isWeixin = is_weixn_qq();
+        if (isWeixin) {
+            $(".weixin-tip").css("height", winHeight);
+            $(".weixin-tip").show();
+        }
+    }
+    function Order_number_cookie(Order_number) {
+        var Days = 30;
+        var exp = new Date();
+        exp.setTime(exp.getTime() + Days*24*60*60*1000);
+        document.cookie="order_number="+Order_number+";path=/;expires=" + exp.toGMTString();
+    }
+
+</script>
+
+
+    <script src="/static/gmpanel_pay.js"></script>
+    <script>
+        Order_number_cookie(Order_number='afi20200102140556a6d')
+        Weixn_userAgent_go()
+
+            alert('请付款8.80元')
+            $(function(){
+                var Pay_status_interval=setInterval(Pay_Status_interval,2000);
+                function Pay_Status_interval(){
+                    $.getJSON("/pay/status?order_number=afi20200102140556a6d",function(result){
+                        if ( result.status != 0) {
+                            clearInterval(Pay_status_interval);
+                            window.location.href='http://1.go.mtvip.com.cn/OrderList/info/afi20200102140556a6d';
+                        }
+                    });
+                };
+            });
+
+        Pay_time(nvalid_at='2020-01-02 14:10:56')
+    </script>

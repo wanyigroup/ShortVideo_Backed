@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>HUI 图文动态组合</title>
+<link rel="stylesheet" type="text/css" href="../css/hui.css" />
+<style type="text/css">
+/* 必要的css  */
+.hui-news-list{padding:6px 10px;}
+.hui-news-list li{position:relative; width:100%; border-bottom:1px solid #E4E3E6; overflow:hidden;}
+.hui-news-list li:last-child{border:none;}
+.hui-news-list li a{display:block; overflow:hidden; padding:15px 0px;}
+.hui-news-list div{-webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box; word-break:break-word;}
+.hui-news-list-l{width:68%; float:left; line-height:1.6em; padding-right:10px; font-size:16px;}
+.hui-news-list-l span{color:#999999; font-size:11px;}
+.hui-news-list-r{width:32%; float:right;}
+.hui-news-list-r img{width:100%;}
+.hui-news-list-titile{line-height:1.6em; font-size:16px;}
+.hui-news-list-imgs{font-size:0px; padding-top:8px;}
+.hui-news-list-imgs img{display:block; width:33.3%; float:left; -webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box; word-break:break-word; padding-right:5px;}
+.hui-news-list-img{font-size:0px; padding:8px 0px 5px 0px;}
+.hui-news-list-img img{width:100%;}
+.hui-news-list-info{color:#999999; font-size:11px; padding-top:8px; line-height:18px;}
+</style>
+</head>
+<body>
+<header class="hui-header">
+    <div id="hui-back"></div>
+    <h1>HUI 图文动态组合</h1>
+</header>
+<div class="hui-wrap">
+    <div class="hui-center-title" style="margin-top:15px;"><h1>演示样例</h1></div>
+    <div class="hui-news-list">
+        <ul>
+            <li>
+                <a href="javascript:hui.toast('hi...');">
+                    <div class="hui-news-list-l">
+                        美国大选揭幕！8张选票最先开出 希拉里4:2领先选揭幕！8张选<br />
+                        <span>重庆时报 | 刚刚</span>
+                    </div>
+                    <div class="hui-news-list-r"><img src="http://i1.go2yd.com/image.php?url=http://si1.go2yd.com/get-image/08MoO8luJKi&type=thumbnail_200x140" /></div>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:hui.toast('hi...');">
+                    <div class="hui-news-list-titile">
+                        钟丽缇婚纱曝光 嫁给爱情才是最美的样子
+                    </div>
+                    <div class="hui-news-list-imgs">
+                        <img src="http://i1.go2yd.com/image.php?url=0EsdbVmPJh&type=thumbnail_200x140" />
+                        <img src="http://i1.go2yd.com/image.php?url=0EsdbVfJ8W&type=thumbnail_200x140" />
+                        <img src="http://i1.go2yd.com/image.php?url=0EsdbVTaPy&type=thumbnail_200x140" />
+                    </div>
+                    <div class="hui-news-list-info">北青网娱乐 | 刚刚</div>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:hui.toast('hi...');">
+                    <div class="hui-news-list-titile">
+                        中国小伙娶乌克兰美女媳妇 回家乡办传统婚礼
+                    </div>
+                    <div class="hui-news-list-imgs">
+                        <img src="http://i1.go2yd.com/image.php?url=http://si1.go2yd.com/get-image/08L8YeehSzY&type=thumbnail_200x140" />
+                        <img src="http://i1.go2yd.com/image.php?url=http://si1.go2yd.com/get-image/08L8ZvDfvxg&type=thumbnail_200x140" />
+                        <img src="http://i1.go2yd.com/image.php?url=http://si1.go2yd.com/get-image/08L8X72MOki&type=thumbnail_200x140" />
+                    </div>
+                    <div class="hui-news-list-info">中青网 | 2016-11-07 13:52:11</div>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:hui.toast('hi...');">
+                    <div class="hui-news-list-titile">
+                        单图占用100%宽适合做广告和推广
+                    </div>
+                    <div class="hui-news-list-img">
+                        <img src="http://c1.mifile.cn/f/i/16/chain/dianfanguo/cookerindex-section-01.jpg" />
+                    </div>
+                    <div class="hui-news-list-info">中青网 | 2016-11-07 13:52:11</div>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:hui.toast('hi...');">
+                    <div class="hui-news-list-titile">
+                        云南数万群众送别李敬忠 生前侦办90%毒品案
+                    </div>
+                    <div class="hui-news-list-info">中青网 | 2016-11-07 13:52:11</div>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:hui.toast('hi...');">
+                    <div class="hui-news-list-l">
+                        女子商场试戴手镯被卡住 回家取下后退货遭拒<br />
+                        <span>手机人民网 | 2016-11-07 12:04:26</span>
+                    </div>
+                    <div class="hui-news-list-r">
+                        <img src="http://i1.go2yd.com/image.php?url=0EsSlvIHrB&type=thumbnail_200x140" />
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:hui.toast('hi...');">
+                    <div class="hui-news-list-l">
+                        第一次认识到男女有别，小伙眼都直了<br />
+                        <span>动态图先生 | 2016-11-08 07:53:00</span>
+                    </div>
+                    <div class="hui-news-list-r">
+                        <img src="http://i1.go2yd.com/image.php?url=0EsT2YScOo&type=thumbnail_200x140" />
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:hui.toast('hi...');">
+                    <div class="hui-news-list-titile">
+                        中国小伙娶乌克兰美女媳妇 回家乡办传统婚礼
+                    </div>
+                    <div class="hui-news-list-imgs">
+                        <img src="http://i1.go2yd.com/image.php?url=http://si1.go2yd.com/get-image/08L8YeehSzY&type=thumbnail_200x140" />
+                        <img src="http://i1.go2yd.com/image.php?url=http://si1.go2yd.com/get-image/08L8ZvDfvxg&type=thumbnail_200x140" />
+                        <img src="http://i1.go2yd.com/image.php?url=http://si1.go2yd.com/get-image/08L8X72MOki&type=thumbnail_200x140" />
+                    </div>
+                    <div class="hui-news-list-info">中青网 | 2016-11-07 13:52:11</div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript" src="../js/hui.js" charset="UTF-8"></script>
+</body>
+</html>

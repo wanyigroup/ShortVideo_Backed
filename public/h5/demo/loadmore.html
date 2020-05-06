@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>HUI </title>
+<link rel="stylesheet" type="text/css" href="../css/hui.css" />
+</head>
+<body background="#f4f5f6;">
+<header class="hui-header">
+    <div id="hui-back"></div>
+    <h1>HUI 上拉加载更多 + 下拉刷新</h1>
+</header>
+<div class="hui-wrap">
+    <div id="refreshContainer" class="hui-refresh">
+        <div class="hui-refresh-icon"></div>
+        <div class="hui-refresh-content hui-list">
+            <ul id="list"></ul>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="../js/hui.js"></script>
+<script type="text/javascript" src="../js/hui-refresh-load-more.js"></script>
+<script type="text/javascript">
+var page = 1;
+hui.refresh('#refreshContainer', refresh);
+hui.loadMore(getMore);
+//加载更多
+function getMore(){
+    hui.get(
+        'http://hoa.hcoder.net/index.php?user=hcoder&pwd=hcoder&m=list1&page='+page,
+        function(res){
+            //判断加载完毕
+            if(res == 'null'){
+                hui.endLoadMore(true, '已经到头了...');
+                return false;
+            }
+            var data = res.split('--hcSplitor--');
+            for(var i = 0; i < data.length; i++){
+                var li = document.createElement('li');
+                li.innerHTML = '<div class="hui-list-text">'+data[i]+'</div>';
+                hui(li).appendTo('#list');
+            }
+            page++;
+            hui.endLoadMore();
+        }
+    );
+}
+
+//下拉刷新
+function refresh(){
+    hui.loading('加载中...');
+    hui.get(
+        'http://hoa.hcoder.net/index.php?user=hcoder&pwd=hcoder&m=list1&page=1',
+        function(res){
+            hui.closeLoading();
+            var data = res.split('--hcSplitor--');
+            var html = '';
+            for(var i = 0; i < data.length; i++){
+                html += '<a href="javascript:hui.toast(\'hi.....\');"><div class="hui-list-text">'+data[i]+'</div></a>';
+            }
+            page = 2;
+            hui('#list').html(html);
+            //结束刷新
+            hui.endRefresh();
+            //重置加载更多状态
+            hui.resetLoadMore();
+        },
+        function(){
+            hui.closeLoading();
+            hui.upToast('连接服务器失败！');
+            hui.endRefresh();
+        }
+    );
+}
+</script>
+</body>
+</html>

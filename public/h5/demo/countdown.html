@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>HUI</title>
+<link rel="stylesheet" type="text/css" href="../css/hui.css" />
+</head>
+<body>
+<header class="hui-header">
+    <div id="hui-back"></div>
+    <h1>HUI 倒计时组件</h1>
+</header>
+<div class="hui-wrap">
+	<div class="hui-common-title" style="margin-top:15px;">
+		<div class="hui-common-title-line"></div>
+		<div class="hui-common-title-txt">倒计时组件演示</div>
+		<div class="hui-common-title-line"></div>
+	</div>
+	<div style="padding:15px;">
+		<div style="padding:20px; border-radius:8px; background:#FFFFFF;">
+			<div style="text-align:center; line-height:28px; font-weight:700; padding-bottom:12px; font-size:16px;">距离活动开始</div>
+			<div id="countdown1"></div>
+		</div>
+		<div style="padding:20px; border-radius:8px; background:#FFFFFF; margin-top:20px;">
+			<div style="text-align:center; line-height:28px; font-weight:700; padding-bottom:12px; font-size:16px;">距离抢票时间</div>
+			<div id="countdown2"></div>
+		</div>
+		<div style="padding:20px; border-radius:8px; background:#FFFFFF; margin-top:20px;">
+			<div style="text-align:center; line-height:28px; font-weight:700; padding-bottom:12px; font-size:16px;">距离开幕时间</div>
+			<div id="countdown3"></div>
+		</div>
+		<div style="padding:20px; border-radius:8px; background:#FFFFFF; margin-top:20px;">
+			<div style="text-align:center; line-height:28px; font-weight:700; padding-bottom:12px; font-size:16px;">分秒倒计时</div>
+			<div id="countdown4"></div>
+		</div>
+	</div>
+</div>
+<script src="../js/hui.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+/* 
+ * hui.countdown()函数说明：
+ * 参数1: 时间的标准格式 2018-09-01 12:50:10 [严格遵守系统会进行校验]
+ * 参数2: domId
+ * 参数3: 展示类型
+ *       1. xx天xx时xx分xx秒
+ * 		 2. xx时xx分xx秒
+ *       3. xx:xx:xx
+ *       4. xx:xx [xx分:xx秒]
+ */
+var dater = new Date();
+var timer = (dater.getFullYear()+1) + '-01-01 12:00:00';
+hui.countdown(timer, '#countdown1', 1);
+hui.countdown(timer,'#countdown2', 2);
+hui.countdown(timer,'#countdown3', 3);
+hui.countdown(timer,'#countdown4', 4);
+</script>
+</body>
+</html>

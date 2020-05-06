@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>HUI </title>
+<link rel="stylesheet" type="text/css" href="../css/hui.css" />
+</head>
+<body>
+<header class="hui-header">
+    <div id="hui-back"></div>
+    <h1>HUI 图片预览</h1>
+</header>
+<div class="hui-wrap">
+    <div class="hui-center-title"><h1>演示样例</h1></div>
+    <div class="hui-text" style="text-align:center; padding:15px 0px;">请点击下面任意图片进行测试。</div>
+    <style>
+    .imgs{width:100%; margin-bottom:15px;}
+    </style>
+    <div style="padding:12px;">
+    	<img src="../img/imglist/3.jpg" class="imgs" />
+    	<img src="../img/imglist/2.jpg" class="imgs" />
+    	<img src="../img/imglist/1.jpg" class="imgs" />
+    	<img src="../img/imglist/4.jpg" class="imgs" />
+    </div>
+</div>
+<script type="text/javascript" src="../js/hui.js" charset="UTF-8"></script>
+<!-- 使用 phoneSwipe 插件完成图片预览 -->
+<!-- 引用 phoneSwipe 插件依赖的 css 及 js -->
+<script type="text/javascript" src="../plug-ins/phoneswipe/photoswipe.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="../plug-ins/phoneswipe/photoswipe-ui-default.min.js" charset="UTF-8"></script>
+<link rel="stylesheet" href="../plug-ins/phoneswipe/photoswipe.css" type="text/css" />
+<!-- 以下为 phoneSwipe 插件 dom 复制即可 -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container" style="overflow:visible;">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="关闭"></button>
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+//js 调用插件
+hui('.imgs').click(function(){
+	var index = hui(this).index();
+	previewImg(index);
+});
+function previewImg(index){
+	var pswpElement = document.querySelectorAll('.pswp')[0];
+	var items = [];
+	//获取图片数据并填充近数组
+	hui('.imgs').each(function(eimg){
+		var imgObj = {src:eimg.getAttribute('src'), w:eimg.naturalWidth, h:eimg.naturalHeight};
+		items.push(imgObj);
+	});
+	var options = {index: index};
+	var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
+	gallery.init();
+}
+</script>
+</body>
+</html>

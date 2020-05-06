@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>HUI</title>
+<link rel="stylesheet" type="text/css" href="../css/hui.css" />
+<style type="text/css">
+/* 自定义样式  */
+.hui-hot-sreach{background:#FFFFFF; padding:12px;}
+.hui-hot-sreach-title{line-height:38px; font-size:15px; font-weight:700;}
+.hui-hot-sreach-keys{margin-top:8px;}
+.hui-hot-sreach-keys a{display:block; border-radius:5px; float:left; margin:0 8px 10px 0px; padding:6px 10px; line-height:20px; font-size:13px; background:#EFF3F6;}
+</style>
+</head>
+<body>
+<header class="hui-header">
+    <div id="hui-back"></div>
+    <div id="hui-header-sreach">
+    	<div id="hui-header-sreach-icon"></div>
+		<form><input type="search" id="searchKey" onkeydown="if(event.keyCode==13)return false;" placeholder="请输入商品关键字" /></form>
+	</div>
+	<div class="hui-header-sreach-txt" onclick="clearSearch();">清空</div>
+</header>
+<div class="hui-wrap">
+	<div class="hui-hot-sreach">
+		<div class="hui-hot-sreach-title">热搜</div>
+		<div class="hui-hot-sreach-keys">
+			<a href="javascript:hotSearch('笔记本电脑');">笔记本电脑</a>
+			<a href="javascript:hotSearch('手机');">手机</a>
+			<a href="javascript:hotSearch('小米');">小米</a>
+			<a href="javascript:hotSearch('免费');">免费</a>
+			<a href="javascript:hotSearch('cpu');">cpu</a>
+			<a href="javascript:hotSearch('特价');">特价</a>
+			<a href="javascript:hotSearch('台式电脑');">台式电脑</a>
+			<a href="javascript:hotSearch('摄像头');">摄像头</a>
+		</div>
+		<div class="hui-hot-sreach-title">历史</div>
+		<div class="hui-hot-sreach-keys">
+			<a href="javascript:hotSearch('笔记本电脑');">笔记本电脑</a>
+			<a href="javascript:hotSearch('手机');">手机</a>
+			<a href="javascript:hotSearch('小米');">小米</a>
+			<a href="javascript:hotSearch('免费');">免费</a>
+			<a href="javascript:hotSearch('cpu');">cpu</a>
+			<a href="javascript:hotSearch('特价');">特价</a>
+			<a href="javascript:hotSearch('台式电脑');">台式电脑</a>
+			<a href="javascript:hotSearch('摄像头');">摄像头</a>
+		</div>
+	</div>
+</div>
+<script src="../js/hui.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+//监听搜索事件
+document.getElementById('searchKey').addEventListener('keyup', function(e){if(e.keyCode == 13){searchNow();}});
+function hotSearch(k){
+	hui('#searchKey').val(k);
+	searchNow();
+}
+//核心搜索函数
+function searchNow(){
+	document.activeElement.blur();
+	var kwd = hui('#searchKey').val();
+	kwd = kwd.trim();
+	if(kwd.length < 2){
+		hui.toast('关键字至少2个字符');
+		hui('.hui-hot-sreach').show();
+		return;
+	}
+	//关闭热搜
+	hui('.hui-hot-sreach').hide();
+	hui.toast('搜索 '+ kwd);
+}
+//清空
+function clearSearch(){
+	hui('#searchKey').val('');
+	hui('.hui-hot-sreach').show();
+}
+</script>
+</body>
+</html>
