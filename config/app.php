@@ -23,11 +23,11 @@ return [
     ],
     // 域名绑定（自动多应用模式有效）
     'domain_bind'      => [
-        'apploader.afuny.com'=> 'apploader',		    // APP加载器
-        //'advpublic.afuny.com' => 'advpublic',       // APP广告域名
-        //'update.afuny.com' => 'update',				// APK更新域名
-        //'vapi.afuny.com' => 'video',				//  视频数据接口域名
-        'market.afuny.com' => 'bigdata',			// 营销大数据
+        'apploader.test.com'=> 'apploader',		    // APP加载器
+        //'advpublic.test.com' => 'advpublic',       // APP广告域名
+        //'update.test.com' => 'update',				// APK更新域名
+        //'vapi.test.com' => 'video',				//  视频数据接口域名
+        'market.test.com' => 'bigdata',			// 营销大数据
     ],
     // 禁止URL访问的应用列表（多应用模式有效）
     'deny_app_list'         => ['common'],
