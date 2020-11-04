@@ -25,7 +25,7 @@ class Index
         $config['api_status'] = true;
 
         $config['api_urls'] = [];
-        $config['api_urls']['default'] = 'apiv1.afuny.com';
+        $config['api_urls']['default'] = 'apiv1.test.com';
         $appgw = array_flip(Config::get('app.domain_bind'));
 
         /*
